@@ -1,0 +1,1 @@
+../../UMengSocial/UMSocial_Sdk_All_3.1/UMSocial_Sdk_3.1/frameworks/Wechat/WXApi.h
