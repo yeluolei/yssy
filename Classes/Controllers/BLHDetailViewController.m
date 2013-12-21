@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Rurui Ye. All rights reserved.
 //
 
-#import "com_yrr_bbsDetailViewController.h"
+#import "BLHDetailViewController.h"
 
-@interface com_yrr_bbsDetailViewController ()
+@interface BLHDetailViewController ()
 - (void)configureView;
 @end
 
-@implementation com_yrr_bbsDetailViewController
+@implementation BLHDetailViewController
 
 #pragma mark - Managing the detail item
 

@@ -22,9 +22,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class TWTSideMenuViewController;
+@class BLHSideMenuViewController;
 
-@interface TWTSideMenuViewController : UIViewController
+@interface BLHSideMenuViewController : UIViewController
 
 /** Time interval for opening and closing the side menu */
 @property (nonatomic, assign) NSTimeInterval animationDuration;
@@ -62,7 +62,7 @@
 
 @end
 
-@interface TWTSideMenuViewController (MenuActions)
+@interface BLHSideMenuViewController (MenuActions)
 
 /** Open the left side menu; animated or not
  @param animated Is the menu open action animated
@@ -81,7 +81,7 @@
 
 @end
 
-@interface TWTSideMenuViewController (MainViewActions)
+@interface BLHSideMenuViewController (MainViewActions)
 
 - (void)setMainViewController:(UIViewController *)mainViewController animated:(BOOL)animated closeMenu:(BOOL)closeMenu;
 
@@ -89,7 +89,7 @@
 
 @interface UIViewController (TWTSideMenuViewController)
 
-@property (nonatomic, weak) TWTSideMenuViewController *sideMenuViewController;
+@property (nonatomic, weak) BLHSideMenuViewController *sideMenuViewController;
 
 @end
 

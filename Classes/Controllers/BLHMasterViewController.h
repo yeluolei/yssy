@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface com_yrr_bbsMasterViewController : UITableViewController
+@interface BLHMasterViewController : UITableViewController
 
 @end

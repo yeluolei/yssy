@@ -1,21 +1,23 @@
 //
-//  com_yrr_bbsMasterViewController.m
+//  BLHMasterViewController.m
 //  yssy
 //
 //  Created by Rurui Ye on 1/20/13.
 //  Copyright (c) 2013 Rurui Ye. All rights reserved.
 //
 
-#import "com_yrr_bbsMasterViewController.h"
+#import "BLHMasterViewController.h"
+#import "BLHDetailViewController.h"
+#import "BLHSideMenuViewController.h"
 
-#import "com_yrr_bbsDetailViewController.h"
-
-@interface com_yrr_bbsMasterViewController () {
+@interface BLHMasterViewController () {
     NSMutableArray *_objects;
 }
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuNavBarButton;
 @end
 
-@implementation com_yrr_bbsMasterViewController
+@implementation BLHMasterViewController
 
 - (void)awakeFromNib
 {
@@ -26,10 +28,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    // self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    //UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    //self.navigationItem.rightBarButtonItem = addButton;
+}
+- (IBAction)openMenu:(id)sender {
+    [self.sideMenuViewController openMenuAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

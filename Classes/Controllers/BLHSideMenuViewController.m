@@ -20,7 +20,7 @@
  SOFTWARE.
  */
 
-#import "TWTSideMenuViewController.h"
+#import "BLHSideMenuViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <objc/runtime.h>
 
@@ -29,14 +29,14 @@ static NSTimeInterval const kDefaultAnimationDuration = 0.4;
 static NSTimeInterval const kDefaultSwapAnimationDuration = 0.45;
 static NSTimeInterval const kDefaultSwapAnimationClosedDuration = 0.35;
 
-@interface TWTSideMenuViewController ()
+@interface BLHSideMenuViewController ()
 
 @property (nonatomic, strong) UIButton *closeOverlayButton;
 @property (nonatomic, strong) UIView *containerView;
 
 @end
 
-@implementation TWTSideMenuViewController
+@implementation BLHSideMenuViewController
 
 #pragma mark - Life Cycle
 
@@ -64,6 +64,9 @@ static NSTimeInterval const kDefaultSwapAnimationClosedDuration = 0.35;
 - (void)commonInitialization
 {
     self.animationDuration = kDefaultAnimationDuration;
+    self.shadowColor = [UIColor blackColor];
+    self.edgeOffset = (UIOffset) { .horizontal = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 14.0f : 0.0f };
+    self.zoomScale = UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 0.8 : 0.6;//0.5634f : 0.85f;
     
     [self addViewController:self.menuViewController];
     [self addViewController:self.mainViewController];
@@ -418,14 +421,14 @@ static NSTimeInterval const kDefaultSwapAnimationClosedDuration = 0.35;
 
 @implementation UIViewController (TWTSideMenuViewController)
 
-- (void)setSideMenuViewController:(TWTSideMenuViewController *)sideMenuViewController
+- (void)setSideMenuViewController:(BLHSideMenuViewController *)sideMenuViewController
 {
     objc_setAssociatedObject(self, @selector(sideMenuViewController), sideMenuViewController, OBJC_ASSOCIATION_ASSIGN);
 }
 
-- (TWTSideMenuViewController *)sideMenuViewController
+- (BLHSideMenuViewController *)sideMenuViewController
 {
-    TWTSideMenuViewController *sideMenuController = objc_getAssociatedObject(self, @selector(sideMenuViewController));
+    BLHSideMenuViewController *sideMenuController = objc_getAssociatedObject(self, @selector(sideMenuViewController));
     if (!sideMenuController) {
         sideMenuController = self.parentViewController.sideMenuViewController;
     }

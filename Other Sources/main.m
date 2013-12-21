@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "com_yrr_bbsAppDelegate.h"
+#import "BLHAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([com_yrr_bbsAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([BLHAppDelegate class]));
     }
 }
