@@ -15,18 +15,11 @@
 
 @interface BLHMenuViewController ()
 @property (nonatomic) UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet BLHCircleView *idLabelView;
+
 @end
 
 @implementation BLHMenuViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-            }
-    return self;
-}
 
 - (void)viewDidLoad
 {
@@ -44,12 +37,13 @@
     [self.view addSubview:self.backgroundImageView];
     [self.view sendSubviewToBack:(self.backgroundImageView)];
 
-    
+    [self.idLabelView setInitValue:@"Try" andBackground:[UIColor redColor]];
     //BLHCircleView *label = [[BLHCircleView alloc]init];
     //[label setBackgroundColor:[UIColor blueColor]];
     
     //label.frame = CGRectMake(40, 50, 100, 100);
     //[self.view addSubview:label];
+    
     
     NSArray * modeList = @[@"一",@"二"];
     for (NSInteger i = 0; i < modeList.count; i++)

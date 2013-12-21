@@ -46,23 +46,29 @@
     self.backgroundColor = [UIColor clearColor];
     [self addSubview:self.view];
     
-    self.view.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    // Our WidgetView is a UIView that contains a UIView, we need to establish
-    //  the relation with autolayout. We'll want the self.view to be 200x100 pixels
-    //  and we'll have the superview (WidgetView) stick to the edges (i.e. same size).
-    
-    // width and edges   H:|[self.view(200)]|
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_view(100)]|" options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:NSDictionaryOfVariableBindings(_view, self)]];
-    
-    // height and edges   V:|[self.view(100)]|
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_view(100)]|" options:NSLayoutFormatDirectionLeadingToTrailing metrics:nil views:NSDictionaryOfVariableBindings(_view, self)]];
+    self.autoresizesSubviews = YES;
+    [self.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+    //self.circleLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
+    //self.circleLabel.layer.borderWidth = 1.0f;
+    self.circleLabel.layer.cornerRadius = self.circleLabel.frame.size.height/2.0f;
 }
 
+-(void)setInitValue:(NSString *)label andBackground:(UIColor *)background
+{
+    if (label == nil || label.length == 0){
+        label = @"Yssy";
+    }
+    
+    NSString *left = [[label substringToIndex:1] uppercaseString];
+    NSString *right = [label substringWithRange:NSMakeRange(1, label.length - 1)];
+    self.circleLabel.text = left;
+    self.rightLabel.text = right;
+    self.circleLabel.backgroundColor = background;
+}
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
-
+/*
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
@@ -70,7 +76,7 @@
     CGContextAddEllipseInRect(ctx, rect);
     CGContextSetFillColor(ctx, CGColorGetComponents([[UIColor redColor] CGColor]));
     CGContextFillPath(ctx);
-}
+}*/
 
 /*
 -(IBAction)viewTouchedUp

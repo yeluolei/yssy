@@ -17,5 +17,9 @@
 @interface BLHCircleView : UIView
 @property (nonatomic, strong) IBOutlet UIView *view;
 //@property (assign) id<BLHCircleViewDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UILabel *circleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rightLabel;
 //-(IBAction)viewTouchedUp;
+
+-(void)setInitValue: (NSString*) label andBackground:(UIColor *)background;
 @end

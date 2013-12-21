@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="30T-id-30y" customClass="BLHCircleView">
-                                <rect key="frame" x="20" y="55" width="100" height="100"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cDF-H2-k5s" customClass="BLHCircleView">
+                                <rect key="frame" x="0.0" y="80" width="200" height="80"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -25,6 +25,9 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <connections>
+                        <outlet property="idLabelView" destination="cDF-H2-k5s" id="Qqv-Wd-p69"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qj0-e5-BQG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -36,7 +39,7 @@
                 <navigationController storyboardIdentifier="MainNavView" id="3" customClass="BLHMainNavViewController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="black" id="4">
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.022350408829483026" green="0.81692437322982769" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
@@ -127,7 +130,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="4tI-FU-Htg">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="List44x44.png" style="done" id="xt2-rD-Mzv">
-                            <color key="tintColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="openMenu:" destination="12" id="X1c-HO-KqD"/>
                             </connections>
