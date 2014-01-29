@@ -1,21 +1,21 @@
 PODS:
-  - AFNetworking (2.0.3):
+  - AFNetworking (2.1.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.0.3):
+  - AFNetworking/NSURLConnection (2.1.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.0.3):
+  - AFNetworking/NSURLSession (2.1.0):
     - AFNetworking/NSURLConnection
-  - AFNetworking/Reachability (2.0.3)
-  - AFNetworking/Security (2.0.3)
-  - AFNetworking/Serialization (2.0.3)
-  - AFNetworking/UIKit (2.0.3):
+  - AFNetworking/Reachability (2.1.0)
+  - AFNetworking/Security (2.1.0)
+  - AFNetworking/Serialization (2.1.0)
+  - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
   - BlocksKit (2.0.0):
     - BlocksKit/All
@@ -32,6 +32,7 @@ PODS:
   - BlocksKit/UIKit (2.0.0):
     - BlocksKit/DynamicDelegate
   - ConciseKit (0.1.2)
+  - hpple (0.2.0)
   - iOS7Colors (2.1.0)
   - libffi (3.0.13)
   - MagicalRecord (2.2)
@@ -41,9 +42,10 @@ PODS:
   - UMengSocial (3.1)
 
 DEPENDENCIES:
-  - AFNetworking (~> 2.0.3)
+  - AFNetworking (~> 2.1.0)
   - BlocksKit (~> 2.0.0)
   - ConciseKit (~> 0.1.2)
+  - hpple (~> 0.2.0)
   - iOS7Colors (~> 2.1.0)
   - MagicalRecord (~> 2.2)
   - MBProgressHUD (~> 0.8)
@@ -52,9 +54,10 @@ DEPENDENCIES:
   - UMengSocial (~> 3.1)
 
 SPEC CHECKSUMS:
-  AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
+  AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
   BlocksKit: b29ee3f28ba06a09f5c64987314ce5b75b2c3962
   ConciseKit: 1e086a66d098ba160ca5faa86458a0431b280b30
+  hpple: dde62f905f482bbec50186280d1a1be2c881241b
   iOS7Colors: bde8733c6cb28db1065875dcff38667090f58779
   libffi: 64ef39353e747bb2b25e1026afd96a157bf9231c
   MagicalRecord: b1fc46c99a9749fe7fe7e6f43a89b62ef5201933
@@ -63,4 +66,4 @@ SPEC CHECKSUMS:
   SFHFKeychainUtils: e828dbd9eaa509486acf95d8de2ebd414c4b7451
   UMengSocial: 3a48fa09ec5ed07ee29fe9f1917c2703f30bb394
 
-COCOAPODS: 0.28.0
+COCOAPODS: 0.29.0

@@ -46,8 +46,32 @@
     self.backgroundColor = [UIColor clearColor];
     [self addSubview:self.view];
     
-    self.autoresizesSubviews = YES;
-    [self.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+    CGFloat factor = 1.0f;
+    NSLayoutConstraint *constraint = [NSLayoutConstraint
+                                      constraintWithItem:self.circleLabel
+                                      attribute:NSLayoutAttributeWidth
+                                      relatedBy:NSLayoutRelationEqual
+                                      toItem:self.circleLabel
+                                      attribute:NSLayoutAttributeHeight
+                                      multiplier:factor
+                                      constant:0];
+    
+    constraint.priority = 1000;
+    [self.view addConstraint:constraint];
+    
+    [self addConstraints:[NSLayoutConstraint
+                               constraintsWithVisualFormat:@"H:|-0-[_view]-0-|"
+                               options:NSLayoutFormatDirectionLeadingToTrailing
+                               metrics:nil
+                               views:NSDictionaryOfVariableBindings(_view)]];
+    [self addConstraints:[NSLayoutConstraint
+                               constraintsWithVisualFormat:@"V:|-0-[_view]-0-|"
+                               options:NSLayoutFormatDirectionLeadingToTrailing
+                               metrics:nil
+                               views:NSDictionaryOfVariableBindings(_view)]];
+
+    //self.autoresizesSubviews = YES;
+    //[self.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     //self.circleLabel.layer.borderColor = [[UIColor whiteColor] CGColor];
     //self.circleLabel.layer.borderWidth = 1.0f;
     self.circleLabel.layer.cornerRadius = self.circleLabel.frame.size.height/2.0f;
@@ -60,7 +84,7 @@
     }
     
     NSString *left = [[label substringToIndex:1] uppercaseString];
-    NSString *right = [label substringWithRange:NSMakeRange(1, label.length - 1)];
+    NSString *right = label;
     self.circleLabel.text = left;
     self.rightLabel.text = right;
     self.circleLabel.backgroundColor = background;

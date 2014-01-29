@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-hpple.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-iOS7Colors.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -62,57 +67,62 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0BEC131FC8544DAF82DD4407</key>
+		<key>1AC83A87D377410594BD6BA9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>10933F68393846F79A8E02D0</key>
+		<key>1C84C3042AA64B619421747A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6384986895DA42B0BA8496A7</key>
+		<key>2773A03B86734641A4F37FB8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>69DB8B92F8F1477D9D2102F6</key>
+		<key>2E613DE93D4B455AA9018E41</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7468F5DE684149F2BB910695</key>
+		<key>46150F0309694A5DB1768CAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A09C113368264DE0B8048780</key>
+		<key>51A10F54E57341039A14365C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ADF2E32E8B414AE3AF7C9C12</key>
+		<key>606CF751D76B44E283CE160B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E7A57E12E29D43D5BF8416BE</key>
+		<key>7AFF1AAAF03B4CA4B9D7C3F4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EE90D68A9D244130AF2407F6</key>
+		<key>A88A9078BE0940489F916B06</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F075545DA38A47D0820FF6F8</key>
+		<key>BC0E6AEA92744A6AB34936C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FADDAB8A17AD4E5EBCEECF2F</key>
+		<key>D44DFA09657C4AFA9B37439A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA1F9E65A6734AE38BF2D8C2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

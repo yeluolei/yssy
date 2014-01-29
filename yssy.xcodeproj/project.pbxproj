@@ -10,16 +10,12 @@
 		7E217E681862B673002C6ECE /* List44x44.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E217E671862B673002C6ECE /* List44x44.png */; };
 		7E217E6B186313E5002C6ECE /* BLHSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E217E6A186313E5002C6ECE /* BLHSideMenuViewController.m */; };
 		7E217E6E18631529002C6ECE /* BLHMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E217E6D18631529002C6ECE /* BLHMenuViewController.m */; };
-		7E217E71186316AA002C6ECE /* blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E217E6F186316AA002C6ECE /* blur.png */; };
-		7E217E72186316AA002C6ECE /* galaxy.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E217E70186316AA002C6ECE /* galaxy.png */; };
 		7E217E7B186325DB002C6ECE /* BLHMainNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E217E7A186325DB002C6ECE /* BLHMainNavViewController.m */; };
 		7E217E7E18632F1D002C6ECE /* SideMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E217E7D18632F1D002C6ECE /* SideMenuButton.m */; };
 		7E217E881864951C002C6ECE /* CircleLabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E217E871864951C002C6ECE /* CircleLabelView.xib */; };
 		7E217E8C1865327C002C6ECE /* BLHCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E217E8B1865327C002C6ECE /* BLHCircleView.m */; };
 		7E217E8F1865337A002C6ECE /* BLHViewLoadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E217E8E1865337A002C6ECE /* BLHViewLoadHelper.m */; };
-		7E21C6711860380D008B9C0D /* libSSToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E21C668186037CB008B9C0D /* libSSToolkit.a */; };
 		7E21C67318603824008B9C0D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E21C67218603824008B9C0D /* MessageUI.framework */; };
-		7E21C674186038A3008B9C0D /* SSToolkitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7E21C66C186037CB008B9C0D /* SSToolkitResources.bundle */; };
 		7E6F248C185F5C2600A8D061 /* BLHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F246F185F5C2600A8D061 /* BLHAppDelegate.m */; };
 		7E6F248D185F5C2600A8D061 /* BLHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F2472185F5C2600A8D061 /* BLHDetailViewController.m */; };
 		7E6F248E185F5C2600A8D061 /* BLHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F2474185F5C2600A8D061 /* BLHMasterViewController.m */; };
@@ -44,6 +40,11 @@
 		7E6F24C1185F5E5900A8D061 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6F24B1185F5E5900A8D061 /* iTunesArtwork.png */; };
 		7E6F24C2185F5E5900A8D061 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6F24B2185F5E5900A8D061 /* iTunesArtwork@2x.png */; };
 		7E6F24C4185F643300A8D061 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6F24C3185F643300A8D061 /* QuartzCore.framework */; };
+		7ED5BE1C1896B2AA00D7C334 /* BLHNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5BE1B1896B2AA00D7C334 /* BLHNetworkHelper.m */; };
+		7ED5BE1E18994A6100D7C334 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED5BE1D18994A6100D7C334 /* libxml2.dylib */; };
+		7ED5BE211899500000D7C334 /* blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED5BE1F1899500000D7C334 /* blur.png */; };
+		7ED5BE221899500000D7C334 /* galaxy.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED5BE201899500000D7C334 /* galaxy.png */; };
+		7EE3995E18962C7B0071C219 /* BLHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3995D18962C7B0071C219 /* BLHLoginViewController.m */; };
 		8408FA1751D640C0B2D7EFD6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5255180A0FD4D36A1677979 /* libPods.a */; };
 		ED13B3E516AC1A4A00B8E8A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED13B3E416AC1A4A00B8E8A2 /* UIKit.framework */; };
 		ED13B3E716AC1A4A00B8E8A2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED13B3E616AC1A4A00B8E8A2 /* Foundation.framework */; };
@@ -56,41 +57,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7E21C667186037CB008B9C0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7E21C661186037CA008B9C0D /* SSToolkit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = SSToolkit;
-		};
-		7E21C669186037CB008B9C0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7E21C661186037CA008B9C0D /* SSToolkit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B239101D1357DC3E00ADE21B;
-			remoteInfo = SSToolkitTests;
-		};
-		7E21C66B186037CB008B9C0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7E21C661186037CA008B9C0D /* SSToolkit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B2C507EA151BA64400E94614;
-			remoteInfo = SSToolkitResources;
-		};
-		7E21C66D186037F3008B9C0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7E21C661186037CA008B9C0D /* SSToolkit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = SSToolkit;
-		};
-		7E21C66F186037F3008B9C0D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7E21C661186037CA008B9C0D /* SSToolkit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = B2C507E9151BA64400E94614;
-			remoteInfo = SSToolkitResources;
-		};
 		ED13B40F16AC1A4B00B8E8A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ED13B3D716AC1A4A00B8E8A2 /* Project object */;
@@ -107,8 +73,6 @@
 		7E217E6A186313E5002C6ECE /* BLHSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHSideMenuViewController.m; sourceTree = "<group>"; };
 		7E217E6C18631529002C6ECE /* BLHMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHMenuViewController.h; sourceTree = "<group>"; };
 		7E217E6D18631529002C6ECE /* BLHMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHMenuViewController.m; sourceTree = "<group>"; };
-		7E217E6F186316AA002C6ECE /* blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blur.png; path = "../../../../../Downloads/TWTSideMenuViewController-master/TWTSideMenuViewController-Sample/blur.png"; sourceTree = "<group>"; };
-		7E217E70186316AA002C6ECE /* galaxy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = galaxy.png; path = "../../../../../Downloads/TWTSideMenuViewController-master/TWTSideMenuViewController-Sample/galaxy.png"; sourceTree = "<group>"; };
 		7E217E79186325DB002C6ECE /* BLHMainNavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHMainNavViewController.h; sourceTree = "<group>"; };
 		7E217E7A186325DB002C6ECE /* BLHMainNavViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHMainNavViewController.m; sourceTree = "<group>"; };
 		7E217E7C18632F1D002C6ECE /* SideMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuButton.h; sourceTree = "<group>"; };
@@ -118,7 +82,6 @@
 		7E217E8B1865327C002C6ECE /* BLHCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHCircleView.m; sourceTree = "<group>"; };
 		7E217E8D1865337A002C6ECE /* BLHViewLoadHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHViewLoadHelper.h; sourceTree = "<group>"; };
 		7E217E8E1865337A002C6ECE /* BLHViewLoadHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHViewLoadHelper.m; sourceTree = "<group>"; };
-		7E21C661186037CA008B9C0D /* SSToolkit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SSToolkit.xcodeproj; path = Vendor/SSToolkit/SSToolkit.xcodeproj; sourceTree = "<group>"; };
 		7E21C67218603824008B9C0D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7E6F246E185F5C2600A8D061 /* BLHAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHAppDelegate.h; sourceTree = "<group>"; };
 		7E6F246F185F5C2600A8D061 /* BLHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHAppDelegate.m; sourceTree = "<group>"; };
@@ -149,6 +112,13 @@
 		7E6F24B2185F5E5900A8D061 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		7E6F24C3185F643300A8D061 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7E6F24C5185F648D00A8D061 /* yssy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "yssy-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7ED5BE1A1896B2AA00D7C334 /* BLHNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHNetworkHelper.h; sourceTree = "<group>"; };
+		7ED5BE1B1896B2AA00D7C334 /* BLHNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHNetworkHelper.m; sourceTree = "<group>"; };
+		7ED5BE1D18994A6100D7C334 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		7ED5BE1F1899500000D7C334 /* blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blur.png; sourceTree = "<group>"; };
+		7ED5BE201899500000D7C334 /* galaxy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = galaxy.png; sourceTree = "<group>"; };
+		7EE3995C18962C7B0071C219 /* BLHLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLHLoginViewController.h; path = Classes/Controllers/BLHLoginViewController.h; sourceTree = SOURCE_ROOT; };
+		7EE3995D18962C7B0071C219 /* BLHLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLHLoginViewController.m; path = Classes/Controllers/BLHLoginViewController.m; sourceTree = SOURCE_ROOT; };
 		E5255180A0FD4D36A1677979 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED13B3E016AC1A4A00B8E8A2 /* 饮水思源.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "饮水思源.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED13B3E416AC1A4A00B8E8A2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -167,8 +137,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ED5BE1E18994A6100D7C334 /* libxml2.dylib in Frameworks */,
 				7E21C67318603824008B9C0D /* MessageUI.framework in Frameworks */,
-				7E21C6711860380D008B9C0D /* libSSToolkit.a in Frameworks */,
 				7E6F24C4185F643300A8D061 /* QuartzCore.framework in Frameworks */,
 				ED13B3E516AC1A4A00B8E8A2 /* UIKit.framework in Frameworks */,
 				ED13B3E716AC1A4A00B8E8A2 /* Foundation.framework in Frameworks */,
@@ -201,16 +171,6 @@
 			path = ../Helpers;
 			sourceTree = "<group>";
 		};
-		7E21C662186037CA008B9C0D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7E21C668186037CB008B9C0D /* libSSToolkit.a */,
-				7E21C66A186037CB008B9C0D /* SSToolkitTests.app */,
-				7E21C66C186037CB008B9C0D /* SSToolkitResources.bundle */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		7E6F246C185F5C2600A8D061 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +195,8 @@
 		7E6F2470185F5C2600A8D061 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7EE3995C18962C7B0071C219 /* BLHLoginViewController.h */,
+				7EE3995D18962C7B0071C219 /* BLHLoginViewController.m */,
 				7E217E69186313E5002C6ECE /* BLHSideMenuViewController.h */,
 				7E217E6A186313E5002C6ECE /* BLHSideMenuViewController.m */,
 				7E6F2471185F5C2600A8D061 /* BLHDetailViewController.h */,
@@ -256,6 +218,8 @@
 				7E217E7D18632F1D002C6ECE /* SideMenuButton.m */,
 				7E217E8D1865337A002C6ECE /* BLHViewLoadHelper.h */,
 				7E217E8E1865337A002C6ECE /* BLHViewLoadHelper.m */,
+				7ED5BE1A1896B2AA00D7C334 /* BLHNetworkHelper.h */,
+				7ED5BE1B1896B2AA00D7C334 /* BLHNetworkHelper.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -292,8 +256,8 @@
 		7E6F247F185F5C2600A8D061 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				7E217E6F186316AA002C6ECE /* blur.png */,
-				7E217E70186316AA002C6ECE /* galaxy.png */,
+				7ED5BE1F1899500000D7C334 /* blur.png */,
+				7ED5BE201899500000D7C334 /* galaxy.png */,
 				7E217E671862B673002C6ECE /* List44x44.png */,
 				7E6F24A3185F5E5900A8D061 /* AppIcon29x29.png */,
 				7E6F24A4185F5E5900A8D061 /* AppIcon29x29@2x.png */,
@@ -349,7 +313,6 @@
 		ED13B3D516AC1A4A00B8E8A2 = {
 			isa = PBXGroup;
 			children = (
-				7E21C661186037CA008B9C0D /* SSToolkit.xcodeproj */,
 				ED13B41116AC1A4B00B8E8A2 /* yssyTests */,
 				ED13B3E316AC1A4A00B8E8A2 /* Frameworks */,
 				ED13B3E116AC1A4A00B8E8A2 /* Products */,
@@ -372,6 +335,7 @@
 		ED13B3E316AC1A4A00B8E8A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7ED5BE1D18994A6100D7C334 /* libxml2.dylib */,
 				7E21C67218603824008B9C0D /* MessageUI.framework */,
 				7E6F24C3185F643300A8D061 /* QuartzCore.framework */,
 				ED13B3E416AC1A4A00B8E8A2 /* UIKit.framework */,
@@ -418,8 +382,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				7E21C66E186037F3008B9C0D /* PBXTargetDependency */,
-				7E21C670186037F3008B9C0D /* PBXTargetDependency */,
 			);
 			name = "饮水思源";
 			productName = yssy;
@@ -465,12 +427,6 @@
 			mainGroup = ED13B3D516AC1A4A00B8E8A2;
 			productRefGroup = ED13B3E116AC1A4A00B8E8A2 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 7E21C662186037CA008B9C0D /* Products */;
-					ProjectRef = 7E21C661186037CA008B9C0D /* SSToolkit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				ED13B3DF16AC1A4A00B8E8A2 /* 饮水思源 */,
@@ -478,30 +434,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		7E21C668186037CB008B9C0D /* libSSToolkit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSSToolkit.a;
-			remoteRef = 7E21C667186037CB008B9C0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7E21C66A186037CB008B9C0D /* SSToolkitTests.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = SSToolkitTests.app;
-			remoteRef = 7E21C669186037CB008B9C0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7E21C66C186037CB008B9C0D /* SSToolkitResources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SSToolkitResources.bundle;
-			remoteRef = 7E21C66B186037CB008B9C0D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		ED13B3DE16AC1A4A00B8E8A2 /* Resources */ = {
@@ -516,11 +448,10 @@
 				7E6F24B5185F5E5900A8D061 /* AppIcon40x40.png in Resources */,
 				7E6F24B7185F5E5900A8D061 /* AppIcon50x50.png in Resources */,
 				7E6F24B4185F5E5900A8D061 /* AppIcon29x29@2x.png in Resources */,
-				7E21C674186038A3008B9C0D /* SSToolkitResources.bundle in Resources */,
 				7E217E881864951C002C6ECE /* CircleLabelView.xib in Resources */,
 				7E6F24BC185F5E5900A8D061 /* AppIcon60x60@2x.png in Resources */,
-				7E217E72186316AA002C6ECE /* galaxy.png in Resources */,
-				7E217E71186316AA002C6ECE /* blur.png in Resources */,
+				7ED5BE221899500000D7C334 /* galaxy.png in Resources */,
+				7ED5BE211899500000D7C334 /* blur.png in Resources */,
 				7E6F24BF185F5E5900A8D061 /* AppIcon76x76.png in Resources */,
 				7E6F24BD185F5E5900A8D061 /* AppIcon72x72.png in Resources */,
 				7E6F24A0185F5DAD00A8D061 /* MainStoryboard.storyboard in Resources */,
@@ -603,7 +534,9 @@
 				7E217E7B186325DB002C6ECE /* BLHMainNavViewController.m in Sources */,
 				7E217E8C1865327C002C6ECE /* BLHCircleView.m in Sources */,
 				7E217E6E18631529002C6ECE /* BLHMenuViewController.m in Sources */,
+				7EE3995E18962C7B0071C219 /* BLHLoginViewController.m in Sources */,
 				7E6F248D185F5C2600A8D061 /* BLHDetailViewController.m in Sources */,
+				7ED5BE1C1896B2AA00D7C334 /* BLHNetworkHelper.m in Sources */,
 				7E217E7E18632F1D002C6ECE /* SideMenuButton.m in Sources */,
 				7E217E8F1865337A002C6ECE /* BLHViewLoadHelper.m in Sources */,
 			);
@@ -620,16 +553,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7E21C66E186037F3008B9C0D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SSToolkit;
-			targetProxy = 7E21C66D186037F3008B9C0D /* PBXContainerItemProxy */;
-		};
-		7E21C670186037F3008B9C0D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SSToolkitResources;
-			targetProxy = 7E21C66F186037F3008B9C0D /* PBXContainerItemProxy */;
-		};
 		ED13B41016AC1A4B00B8E8A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = ED13B3DF16AC1A4A00B8E8A2 /* 饮水思源 */;
@@ -679,6 +602,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SDKROOT)/usr/include/libxml2",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -700,6 +628,11 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SDKROOT)/usr/include/libxml2",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
@@ -715,6 +648,21 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Other Sources/yssy-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/BlocksKit\"",
+					"\"${PODS_ROOT}/Headers/ConciseKit\"",
+					"\"${PODS_ROOT}/Headers/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/MagicalRecord\"",
+					"\"${PODS_ROOT}/Headers/Reachability\"",
+					"\"${PODS_ROOT}/Headers/SFHFKeychainUtils\"",
+					"\"${PODS_ROOT}/Headers/UMengSocial\"",
+					"\"${PODS_ROOT}/Headers/hpple\"",
+					"\"${PODS_ROOT}/Headers/iOS7Colors\"",
+					"\"${PODS_ROOT}/Headers/libffi\"",
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/yssy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
@@ -761,6 +709,21 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Other Sources/yssy-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/BlocksKit\"",
+					"\"${PODS_ROOT}/Headers/ConciseKit\"",
+					"\"${PODS_ROOT}/Headers/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/MagicalRecord\"",
+					"\"${PODS_ROOT}/Headers/Reachability\"",
+					"\"${PODS_ROOT}/Headers/SFHFKeychainUtils\"",
+					"\"${PODS_ROOT}/Headers/UMengSocial\"",
+					"\"${PODS_ROOT}/Headers/hpple\"",
+					"\"${PODS_ROOT}/Headers/iOS7Colors\"",
+					"\"${PODS_ROOT}/Headers/libffi\"",
+					"\"$(SDKROOT)/usr/include/libxml2\"",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/yssy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
