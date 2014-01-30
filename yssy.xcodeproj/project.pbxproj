@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7070B1F1189A8B2800062DE4 /* ReplyToMeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7070B1F0189A8B2800062DE4 /* ReplyToMeItem.m */; };
 		7E217E681862B673002C6ECE /* List44x44.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E217E671862B673002C6ECE /* List44x44.png */; };
 		7E217E6B186313E5002C6ECE /* BLHSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E217E6A186313E5002C6ECE /* BLHSideMenuViewController.m */; };
 		7E217E6E18631529002C6ECE /* BLHMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E217E6D18631529002C6ECE /* BLHMenuViewController.m */; };
@@ -69,6 +70,8 @@
 
 /* Begin PBXFileReference section */
 		0A28B8F1161840AD8E3A1D81 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		7070B1EF189A8B2800062DE4 /* ReplyToMeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyToMeItem.h; sourceTree = SOURCE_ROOT; };
+		7070B1F0189A8B2800062DE4 /* ReplyToMeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyToMeItem.m; sourceTree = SOURCE_ROOT; };
 		7E217E671862B673002C6ECE /* List44x44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = List44x44.png; sourceTree = "<group>"; };
 		7E217E69186313E5002C6ECE /* BLHSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHSideMenuViewController.h; sourceTree = "<group>"; };
 		7E217E6A186313E5002C6ECE /* BLHSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHSideMenuViewController.m; sourceTree = "<group>"; };
@@ -232,6 +235,8 @@
 		7E6F247A185F5C2600A8D061 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7070B1EF189A8B2800062DE4 /* ReplyToMeItem.h */,
+				7070B1F0189A8B2800062DE4 /* ReplyToMeItem.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 				7E6F248C185F5C2600A8D061 /* BLHAppDelegate.m in Sources */,
 				7E217E7B186325DB002C6ECE /* BLHMainNavViewController.m in Sources */,
 				7E217E8C1865327C002C6ECE /* BLHCircleView.m in Sources */,
+				7070B1F1189A8B2800062DE4 /* ReplyToMeItem.m in Sources */,
 				7ED5BE25189A375D00D7C334 /* BLHReplyMeViewController.m in Sources */,
 				7E217E6E18631529002C6ECE /* BLHMenuViewController.m in Sources */,
 				7EE3995E18962C7B0071C219 /* BLHLoginViewController.m in Sources */,
