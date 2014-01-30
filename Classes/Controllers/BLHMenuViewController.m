@@ -121,14 +121,15 @@
     
     // TODO 怎么new一个controller放在这里切换。。
     UIViewController *controller;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     switch (indexPath.row) {
         case 0:
-            controller = [[BLHMasterViewController alloc]init];
+            controller = [(BLHMainNavViewController*)[storyboard instantiateViewControllerWithIdentifier:@"MainNavView"] initWithRootViewController:[storyboard instantiateViewControllerWithIdentifier:@"MasterViewController"]];
         break;
         case 1:
         break;
         case 2:
-            controller = [[BLHReplyMeViewController alloc]init];
+            controller = [(BLHMainNavViewController*)[storyboard instantiateViewControllerWithIdentifier:@"ReplyMeNav"] initWithRootViewController:[storyboard instantiateViewControllerWithIdentifier:@"ReplyMeViewController"]];
         break;
         default:
         break;

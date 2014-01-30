@@ -27,8 +27,8 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.menuViewController = (BLHMenuViewController *)[sb instantiateViewControllerWithIdentifier:@"MenuView"];
-    self.mainViewController = (BLHMasterViewController *)[sb instantiateViewControllerWithIdentifier:@"MasterView"];
+    self.menuViewController = (BLHMenuViewController *)[sb instantiateViewControllerWithIdentifier:@"MenuViewController"];
+    self.mainViewController = (BLHMasterViewController *)[sb instantiateViewControllerWithIdentifier:@"MasterViewController"];
     
     self.sideMenuViewController = [[BLHSideMenuViewController alloc] initWithMenuViewController:self.menuViewController mainViewController: [(BLHMainNavViewController*)[sb instantiateViewControllerWithIdentifier:@"MainNavView"] initWithRootViewController:self.mainViewController ]];
     self.sideMenuViewController.shadowColor = [UIColor blackColor];

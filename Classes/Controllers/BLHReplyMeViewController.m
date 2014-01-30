@@ -10,7 +10,7 @@
 #import "BLHSideMenuViewController.h"
 
 @interface BLHReplyMeViewController ()
-@property (weak, nonatomic) IBOutlet UINavigationItem *openMenuNavItem;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *menuNavBarItem;
 
 @end
 
