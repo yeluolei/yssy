@@ -44,6 +44,7 @@
 		7ED5BE1E18994A6100D7C334 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED5BE1D18994A6100D7C334 /* libxml2.dylib */; };
 		7ED5BE211899500000D7C334 /* blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED5BE1F1899500000D7C334 /* blur.png */; };
 		7ED5BE221899500000D7C334 /* galaxy.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED5BE201899500000D7C334 /* galaxy.png */; };
+		7ED5BE25189A375D00D7C334 /* BLHReplyMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5BE24189A375D00D7C334 /* BLHReplyMeViewController.m */; };
 		7EE3995E18962C7B0071C219 /* BLHLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE3995D18962C7B0071C219 /* BLHLoginViewController.m */; };
 		8408FA1751D640C0B2D7EFD6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5255180A0FD4D36A1677979 /* libPods.a */; };
 		ED13B3E516AC1A4A00B8E8A2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED13B3E416AC1A4A00B8E8A2 /* UIKit.framework */; };
@@ -117,6 +118,8 @@
 		7ED5BE1D18994A6100D7C334 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		7ED5BE1F1899500000D7C334 /* blur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blur.png; sourceTree = "<group>"; };
 		7ED5BE201899500000D7C334 /* galaxy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = galaxy.png; sourceTree = "<group>"; };
+		7ED5BE23189A375D00D7C334 /* BLHReplyMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHReplyMeViewController.h; sourceTree = "<group>"; };
+		7ED5BE24189A375D00D7C334 /* BLHReplyMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHReplyMeViewController.m; sourceTree = "<group>"; };
 		7EE3995C18962C7B0071C219 /* BLHLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLHLoginViewController.h; path = Classes/Controllers/BLHLoginViewController.h; sourceTree = SOURCE_ROOT; };
 		7EE3995D18962C7B0071C219 /* BLHLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLHLoginViewController.m; path = Classes/Controllers/BLHLoginViewController.m; sourceTree = SOURCE_ROOT; };
 		E5255180A0FD4D36A1677979 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +210,8 @@
 				7E217E6D18631529002C6ECE /* BLHMenuViewController.m */,
 				7E217E79186325DB002C6ECE /* BLHMainNavViewController.h */,
 				7E217E7A186325DB002C6ECE /* BLHMainNavViewController.m */,
+				7ED5BE23189A375D00D7C334 /* BLHReplyMeViewController.h */,
+				7ED5BE24189A375D00D7C334 /* BLHReplyMeViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 				7E6F248C185F5C2600A8D061 /* BLHAppDelegate.m in Sources */,
 				7E217E7B186325DB002C6ECE /* BLHMainNavViewController.m in Sources */,
 				7E217E8C1865327C002C6ECE /* BLHCircleView.m in Sources */,
+				7ED5BE25189A375D00D7C334 /* BLHReplyMeViewController.m in Sources */,
 				7E217E6E18631529002C6ECE /* BLHMenuViewController.m in Sources */,
 				7EE3995E18962C7B0071C219 /* BLHLoginViewController.m in Sources */,
 				7E6F248D185F5C2600A8D061 /* BLHDetailViewController.m in Sources */,

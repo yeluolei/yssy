@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BLHMenuViewController : UIViewController
+@interface BLHMenuViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end

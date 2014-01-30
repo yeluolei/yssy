@@ -34,7 +34,7 @@
     //self.navigationItem.rightBarButtonItem = addButton;
 }
 - (IBAction)openMenu:(id)sender {
-    [self.sideMenuViewController openMenuAnimated:YES completion:nil];
+    [self.sideMenuViewController toggleMenuAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
