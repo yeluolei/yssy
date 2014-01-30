@@ -16,6 +16,13 @@
 
 -(void)sendRequest:(NSString *)url andParams:(NSMutableDictionary *)params onCompletion:(HttpResponseBlock)completionBlock
 {
+    [[BLHNetworkHelper manager] GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject){
+        if ([operation.response statusCode] == 200){
+            NSLog(@"%@", [BLHNetworkHelper convertResponseToString: responseObject]);
+            completionBlock([NSDictionary dictionaryWithObject:responseObject forKey:@"data"]);
+        }
+        NSLog(@"success");
+    } failure:^(AFHTTPRequestOperation *operation, id responseObject){NSLog(@"Error: sendRequest failed");}];
 }
 
 -(void)postRequest:(NSString *)url andParams:(NSMutableDictionary *)params onCompletion:(HttpResponseBlock)completionBlock
