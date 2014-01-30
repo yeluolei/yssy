@@ -86,17 +86,17 @@
                         tmp.title = decodedString;
                         
                         
-                        base64 =[item objectForKey:@"from_user"];
-                        NSLog(@"item: %@", base64);
-                        decodedString = [self convertBase64ToString:base64];
+                        decodedString =[item objectForKey:@"from_user"];
                         NSLog(@"string in item: %@", decodedString);
                         tmp.from = decodedString;
                         
-                        base64 =[item objectForKey:@"board"];
-                        NSLog(@"item: %@", base64);
-                        decodedString = [self convertBase64ToString:base64];
+                        decodedString =[item objectForKey:@"board"];
                         NSLog(@"string in item: %@", decodedString);
                         tmp.board = decodedString;
+                        
+                        decodedString =[item objectForKey:@"post"];
+                        NSLog(@"string in item: %@", decodedString);
+                        tmp.post = decodedString;
                         
                         [self.ReplyToMeItems addObject:tmp];
                     }
@@ -205,5 +205,12 @@
  }
  
  */
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    ReplyToMeItem *selected = [self.ReplyToMeItems objectAtIndex:indexPath.row];
+}
 
 @end

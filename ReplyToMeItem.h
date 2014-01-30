@@ -12,5 +12,6 @@
 @property NSString *from;
 @property NSString *board;
 @property NSString *title;
+@property NSString *post;
 @property NSDate *replydate;
 @end
