@@ -20,9 +20,14 @@
 
 -(void)postRequest:(NSString *)url andParams:(NSMutableDictionary *)params onCompletion:(HttpResponseBlock)completionBlock
 {
-    [[BLHNetworkHelper manager] POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    AFHTTPRequestOperationManager* manager = [BLHNetworkHelper manager];
+    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    //manager.responseSerializer.stringEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([operation.response statusCode] == 200){
-            NSLog(@"%@", [BLHNetworkHelper convertResponseToString: responseObject]);
+            //NSLog(@"%@", [BLHNetworkHelper convertResponseToString: responseObject]);
             completionBlock([NSDictionary dictionaryWithObject:responseObject forKey:@"data"]);
         }
         //NSLog(@"Login: %@",  [[NSString alloc] initWithData:(NSData *)responseObject encoding:NSUTF8StringEncoding]);
@@ -35,6 +40,19 @@
 
 -(void)getContent:(NSString *)url onCompletion:(HttpResponseBlock)completionBlock
 {
+    AFHTTPRequestOperationManager* manager = [BLHNetworkHelper manager];
+    [manager.requestSerializer setValue:@"AppleWebKit/533.18.1 (KHTML, like Gecko) Version/5.0.2 Safari/533.18.5" forHTTPHeaderField:@"User-Agent"];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([operation.response statusCode] == 200){
+            //NSLog(@"%@", [BLHNetworkHelper convertResponseToString: responseObject]);
+            completionBlock([NSDictionary dictionaryWithObject:responseObject forKey:@"data"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        completionBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey: @"error"]);
+    }];
 }
 
 +(NSString *)convertResponseToString: (id)responseObject
@@ -50,10 +68,6 @@
     if (_manager == nil)
     {
         _manager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:@"https://bbs.sjtu.edu.cn/"]];
-        [_manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-        _manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-        _manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-        _manager.responseSerializer.stringEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
     }
     return _manager;
 }

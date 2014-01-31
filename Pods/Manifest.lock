@@ -31,6 +31,7 @@ PODS:
     - BlocksKit/DynamicDelegate
   - BlocksKit/UIKit (2.0.0):
     - BlocksKit/DynamicDelegate
+  - Colours (4.1)
   - ConciseKit (0.1.2)
   - hpple (0.2.0)
   - iOS7Colors (2.1.0)
@@ -44,6 +45,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.1.0)
   - BlocksKit (~> 2.0.0)
+  - Colours
   - ConciseKit (~> 0.1.2)
   - hpple (~> 0.2.0)
   - iOS7Colors (~> 2.1.0)
@@ -56,6 +58,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
   BlocksKit: b29ee3f28ba06a09f5c64987314ce5b75b2c3962
+  Colours: 72912c7baa2ce5bee076b6ce08f75791a3fa5244
   ConciseKit: 1e086a66d098ba160ca5faa86458a0431b280b30
   hpple: dde62f905f482bbec50186280d1a1be2c881241b
   iOS7Colors: bde8733c6cb28db1065875dcff38667090f58779

@@ -84,6 +84,12 @@
 #define COCOAPODS_VERSION_MINOR_BlocksKit_UIKit 0
 #define COCOAPODS_VERSION_PATCH_BlocksKit_UIKit 0
 
+// Colours
+#define COCOAPODS_POD_AVAILABLE_Colours
+#define COCOAPODS_VERSION_MAJOR_Colours 4
+#define COCOAPODS_VERSION_MINOR_Colours 1
+#define COCOAPODS_VERSION_PATCH_Colours 0
+
 // ConciseKit
 #define COCOAPODS_POD_AVAILABLE_ConciseKit
 #define COCOAPODS_VERSION_MAJOR_ConciseKit 0

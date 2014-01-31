@@ -81,11 +81,6 @@
     return UIStatusBarStyleLightContent;
 }
 
-
-- (IBAction)loginButtonClick:(id)sender {
-    
-}
-
 - (IBAction)unwindToMenu:(UIStoryboardSegue *)segue
 {
     

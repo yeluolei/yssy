@@ -7,11 +7,15 @@
 //
 
 #import "BLHMasterViewController.h"
-#import "BLHDetailViewController.h"
+#import "BLHThreadViewController.h"
 #import "BLHSideMenuViewController.h"
+#import "BLHNetworkHelper.h"
+#import "MBProgressHUD.h"
+#import "BLHTopTenList.h"
+#import "BLHTopTenCell.h"
 
 @interface BLHMasterViewController () {
-    NSMutableArray *_objects;
+    NSArray *_objects;
 }
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuNavBarButton;
@@ -27,12 +31,40 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    BLHNetworkHelper * net = [[BLHNetworkHelper alloc]init];
+    
+    [net getContent:@"http://bbs.sjtu.edu.cn/file/bbs/mobile/top100.html" onCompletion:^(NSDictionary *result) {
+        if (![result objectForKey:@"error"]){
+            NSString *content = [BLHNetworkHelper convertResponseToString: [result objectForKey:@"data"]];
+            //NSLog(@"Get success: %@", content);
+            if (content != nil)
+            {
+                BLHTopTenList* topTenList = [[BLHTopTenList alloc]init];
+                [topTenList parse:content];
+                _objects = [topTenList getPostItems];
+                [self.tableView reloadData];
+            }
+            //NSLog(@"%@", [[NSString alloc] initWithData:(NSData*)responseObject encoding:NSASCIIStringEncoding]);
+        }
+        else
+        {
+            // failed
+            NSLog(@"Get Failed: %@", [result objectForKey:@"error"]);
+            [[[MBProgressHUD alloc]init] showAnimated:true whileExecutingBlock:^{
+                
+            }];
+        }
+    }];
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
     // self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     //UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     //self.navigationItem.rightBarButtonItem = addButton;
 }
+
 - (IBAction)openMenu:(id)sender {
     [self.sideMenuViewController toggleMenuAnimated:YES completion:nil];
 }
@@ -41,16 +73,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)insertNewObject:(id)sender
-{
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
-    }
-    [_objects insertObject:[NSDate date] atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - Table View
@@ -67,23 +89,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    static NSString *topTenCell = @"TopTenCell";
+    
+    BLHTopTenCell *cell = (BLHTopTenCell *)[tableView dequeueReusableCellWithIdentifier:topTenCell];
+    if (cell == nil)
+    {
+        cell = [[BLHTopTenCell alloc] init];
+    }
+    
+    NSDictionary *object = _objects[indexPath.row];
+    [cell setInitValue:[object valueForKey:@"Title"] andBoard:[object valueForKey:@"Board"] andAuthor:[object valueForKey:@"AuthorID"]];
     return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [_objects removeObjectAtIndex:indexPath.row];
+        //[_objects removeObjectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -108,10 +136,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([[segue identifier] isEqualToString:@"showThread"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = _objects[indexPath.row];
-        [[segue destinationViewController] setDetailItem:object];
+        NSDictionary *object = (NSDictionary*)_objects[indexPath.row];
+        BLHThreadViewController* threadController = (BLHThreadViewController*)[segue destinationViewController];
+        threadController.params = object;
     }
 }
 

@@ -23,7 +23,7 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    NSLog(@"initWithFrame");
+    //NSLog(@"circle view initWithFrame");
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
@@ -33,7 +33,7 @@
 }
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    NSLog(@"initWithCoder");
+    //NSLog(@"circle view initWithCoder");
     self = [super initWithCoder:aDecoder];
     if(self) {
         [self setup];

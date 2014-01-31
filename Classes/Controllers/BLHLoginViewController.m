@@ -44,19 +44,37 @@
             if ([content rangeOfString:@"出错啦"].location == NSNotFound)
             {
                 NSLog(@"Login Successed");
-                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登入成功"
+                                                                message:@"登入成功"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
             }
             else
             {
                 TFHpple * doc = [[TFHpple alloc] initWithHTMLData:[result objectForKey:@"data"]];
                 TFHppleElement * e = [doc peekAtSearchWithXPathQuery:@"/html/body/b"];
                 NSLog(@"Login Failed With User Error: %@", e.text);
+                
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登入失败"
+                                                                message:e.text
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
             }
         }
         else
         {
             // failed
             NSLog(@"Login Failed: %@", [result objectForKey:@"error"]);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登入失败"
+                                                            message:[result objectForKey:@"error"]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
         }
     }];
     [MBProgressHUD hideHUDForView:self.view animated:true];

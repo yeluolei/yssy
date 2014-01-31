@@ -3,10 +3,18 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "GLOBAL">
+         contextName = "-[BLHThreadViewController viewDidLoad]:BLHThreadViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "((NSData*)responseObject).bytes">
+               value = "[self.params objectForKey:@&quot;LinkURL&quot;]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__44-[BLHNetworkHelper getContent:onCompletion:]_block_invoke:BLHNetworkHelper.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[[NSString alloc] initWithData:(NSData*)responseObject encoding:CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000)]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
