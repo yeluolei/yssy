@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BLHTopTenList : NSObject
+@interface BLHTopTenParser : NSObject
 {
     NSMutableArray* postItems;
 }
