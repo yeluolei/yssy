@@ -14,15 +14,13 @@
 #import "BLHTopTenParser.h"
 #import "BLHTopTenCell.h"
 #import "BLHTopTenItem.h"
+#import "UIScrollView+SVPullToRefresh.h"
 
-@interface BLHMasterViewController () {
-    NSArray *_objects;
-}
-
+@interface BLHMasterViewController ()
+@property (nonatomic, strong) NSArray *dataSource;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *menuNavBarButton;
 @property (nonatomic) NSDictionary* sections;
 @property (nonatomic) NSArray* sectionIndexs;
--(void) configSections;
 @end
 
 @implementation BLHMasterViewController
@@ -37,7 +35,6 @@
     [super viewDidLoad];
     
     self.sectionIndexs = @[@"#",@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"A",@"B"];
-    
     self.sections = [NSDictionary dictionaryWithObjectsAndKeys:
                      @"今日十大", @"#",
                      @"0区 BBS系统", @"0",
@@ -53,6 +50,28 @@
                      @"A区 社团群体", @"A",
                      @"B区 游戏专区", @"B",
                      nil];
+    [self refreshData];
+    //__weak BLHMasterViewController *weakSelf = self;
+    //[self.tableView addPullToRefreshWithActionHandler:^{
+    //    [weakSelf refreshData];
+        // prepend data to dataSource, insert cells at top of table view
+        // call [tableView.pullToRefreshView stopAnimating] when done
+    //}];
+	// Do any additional setup after loading the view, typically from a nib.
+    // self.navigationItem.leftBarButtonItem = self.editButtonItem;
+
+    //UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    //self.navigationItem.rightBarButtonItem = addButton;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self.tableView triggerPullToRefresh];
+}
+
+-(void) refreshData
+{
+    __weak BLHMasterViewController *weakSelf = self;
+
     BLHNetworkHelper * net = [[BLHNetworkHelper alloc]init];
     
     [net getContent:@"https://bbs.sjtu.edu.cn/php/bbsindex.html" onCompletion:^(NSDictionary *result) {
@@ -63,27 +82,18 @@
             {
                 BLHTopTenParser* topTenList = [[BLHTopTenParser alloc]init];
                 [topTenList parse:content];
-                _objects = [topTenList getPostItems];
-                [self configSections];
-                [self.tableView reloadData];
+                weakSelf.dataSource = [topTenList getPostItems];
+                [weakSelf.tableView reloadData];
             }
-            //NSLog(@"%@", [[NSString alloc] initWithData:(NSData*)responseObject encoding:NSASCIIStringEncoding]);
         }
         else
         {
             // failed
             NSLog(@"Get Failed: %@", [result objectForKey:@"error"]);
-            
             [self showAlertLabel:[result objectForKey:@"error"]];
         }
+        //[weakSelf.tableView.pullToRefreshView stopAnimating];
     }];
-    
-    
-	// Do any additional setup after loading the view, typically from a nib.
-    // self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    //UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    //self.navigationItem.rightBarButtonItem = addButton;
 }
 
 - (IBAction)openMenu:(id)sender {
@@ -100,12 +110,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return _objects.count;
+    return self.dataSource.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return ((NSArray*)[_objects objectAtIndex:section]).count;
+    return ((NSArray*)[self.dataSource objectAtIndex:section]).count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -118,7 +128,7 @@
         cell = [[BLHTopTenCell alloc] init];
     }
     
-    BLHTopTenItem *object = ((NSArray*)_objects[indexPath.section])[indexPath.row];
+    BLHTopTenItem *object = ((NSArray*)self.dataSource[indexPath.section])[indexPath.row];
     [cell setInitValue:object.title andBoard:object.board andAuthor:object.author];
     return cell;
 }
@@ -157,30 +167,12 @@
     return index;
 }
 
--(void) configSections
-{
-}
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
+#pragma Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showThread"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        BLHTopTenItem *object = ((NSArray*)_objects[indexPath.section])[indexPath.row];
+        BLHTopTenItem *object = ((NSArray*)self.dataSource[indexPath.section])[indexPath.row];
         BLHThreadViewController* threadController = (BLHThreadViewController*)[segue destinationViewController];
         threadController.params = [NSDictionary dictionaryWithObjects:@[object.title,object.url] forKeys:@[@"Title",@"LinkURL"]];
     }

@@ -32,7 +32,6 @@ PODS:
   - BlocksKit/UIKit (2.0.0):
     - BlocksKit/DynamicDelegate
   - Colours (4.1)
-  - ConciseKit (0.1.2)
   - hpple (0.2.0)
   - iOS7Colors (2.1.0)
   - libffi (3.0.13)
@@ -40,26 +39,26 @@ PODS:
   - MBProgressHUD (0.8)
   - Reachability (3.1.1)
   - SFHFKeychainUtils (0.0.1)
+  - SVPullToRefresh (0.4.1)
   - UMengSocial (3.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.1.0)
   - BlocksKit (~> 2.0.0)
-  - Colours
-  - ConciseKit (~> 0.1.2)
+  - Colours (~> 4.1)
   - hpple (~> 0.2.0)
   - iOS7Colors (~> 2.1.0)
   - MagicalRecord (~> 2.2)
   - MBProgressHUD (~> 0.8)
   - Reachability (~> 3.1.1)
   - SFHFKeychainUtils (~> 0.0.1)
+  - SVPullToRefresh (~> 0.4.1)
   - UMengSocial (~> 3.1)
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
   BlocksKit: b29ee3f28ba06a09f5c64987314ce5b75b2c3962
   Colours: 72912c7baa2ce5bee076b6ce08f75791a3fa5244
-  ConciseKit: 1e086a66d098ba160ca5faa86458a0431b280b30
   hpple: dde62f905f482bbec50186280d1a1be2c881241b
   iOS7Colors: bde8733c6cb28db1065875dcff38667090f58779
   libffi: 64ef39353e747bb2b25e1026afd96a157bf9231c
@@ -67,6 +66,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   Reachability: be4883bb93f31e38266ae3365e5600a317aae735
   SFHFKeychainUtils: e828dbd9eaa509486acf95d8de2ebd414c4b7451
+  SVPullToRefresh: 61a0e4bd12bd6f8e3465909810b0fbeb1a28d5f2
   UMengSocial: 3a48fa09ec5ed07ee29fe9f1917c2703f30bb394
 
 COCOAPODS: 0.29.0

@@ -28,6 +28,8 @@
 		7E279019189D2B14002D5EBA /* BLHFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E279018189D2B14002D5EBA /* BLHFile.m */; };
 		7E27901C189D2B2B002D5EBA /* BLHFileParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E27901B189D2B2B002D5EBA /* BLHFileParser.m */; };
 		7E27901F189D35DC002D5EBA /* BLHArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E27901E189D35DC002D5EBA /* BLHArticle.m */; };
+		7E4255CC189E75E000264BC7 /* BLHBoardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4255CB189E75E000264BC7 /* BLHBoardListViewController.m */; };
+		7E4255CF189E849E00264BC7 /* BLHBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4255CE189E849E00264BC7 /* BLHBoard.m */; };
 		7E6F248C185F5C2600A8D061 /* BLHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F246F185F5C2600A8D061 /* BLHAppDelegate.m */; };
 		7E6F248E185F5C2600A8D061 /* BLHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F2474185F5C2600A8D061 /* BLHMasterViewController.m */; };
 		7E6F2491185F5C2600A8D061 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F247C185F5C2600A8D061 /* main.m */; };
@@ -123,6 +125,10 @@
 		7E27901B189D2B2B002D5EBA /* BLHFileParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHFileParser.m; sourceTree = "<group>"; };
 		7E27901D189D35DC002D5EBA /* BLHArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHArticle.h; sourceTree = "<group>"; };
 		7E27901E189D35DC002D5EBA /* BLHArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHArticle.m; sourceTree = "<group>"; };
+		7E4255CA189E75E000264BC7 /* BLHBoardListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHBoardListViewController.h; sourceTree = "<group>"; };
+		7E4255CB189E75E000264BC7 /* BLHBoardListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHBoardListViewController.m; sourceTree = "<group>"; };
+		7E4255CD189E849E00264BC7 /* BLHBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHBoard.h; sourceTree = "<group>"; };
+		7E4255CE189E849E00264BC7 /* BLHBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHBoard.m; sourceTree = "<group>"; };
 		7E6F246E185F5C2600A8D061 /* BLHAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHAppDelegate.h; sourceTree = "<group>"; };
 		7E6F246F185F5C2600A8D061 /* BLHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHAppDelegate.m; sourceTree = "<group>"; };
 		7E6F2473185F5C2600A8D061 /* BLHMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHMasterViewController.h; sourceTree = "<group>"; };
@@ -280,6 +286,8 @@
 				7ED5BE24189A375D00D7C334 /* BLHReplyMeViewController.m */,
 				7E278FF9189BEDB3002D5EBA /* BLHThreadViewController.h */,
 				7E278FFA189BEDB3002D5EBA /* BLHThreadViewController.m */,
+				7E4255CA189E75E000264BC7 /* BLHBoardListViewController.h */,
+				7E4255CB189E75E000264BC7 /* BLHBoardListViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -320,6 +328,8 @@
 				7E27901B189D2B2B002D5EBA /* BLHFileParser.m */,
 				7E27901D189D35DC002D5EBA /* BLHArticle.h */,
 				7E27901E189D35DC002D5EBA /* BLHArticle.m */,
+				7E4255CD189E849E00264BC7 /* BLHBoard.h */,
+				7E4255CE189E849E00264BC7 /* BLHBoard.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -646,6 +656,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E4255CF189E849E00264BC7 /* BLHBoard.m in Sources */,
+				7E4255CC189E75E000264BC7 /* BLHBoardListViewController.m in Sources */,
 				7E279016189D2714002D5EBA /* BLHContent.m in Sources */,
 				7ED5BE4F189BBF8900D7C334 /* BLHPaddingLabel.m in Sources */,
 				7E6F2491185F5C2600A8D061 /* main.m in Sources */,

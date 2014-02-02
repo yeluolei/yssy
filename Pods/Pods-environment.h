@@ -90,12 +90,6 @@
 #define COCOAPODS_VERSION_MINOR_Colours 1
 #define COCOAPODS_VERSION_PATCH_Colours 0
 
-// ConciseKit
-#define COCOAPODS_POD_AVAILABLE_ConciseKit
-#define COCOAPODS_VERSION_MAJOR_ConciseKit 0
-#define COCOAPODS_VERSION_MINOR_ConciseKit 1
-#define COCOAPODS_VERSION_PATCH_ConciseKit 2
-
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
 #define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0
@@ -119,6 +113,12 @@
 #define COCOAPODS_VERSION_MAJOR_SFHFKeychainUtils 0
 #define COCOAPODS_VERSION_MINOR_SFHFKeychainUtils 0
 #define COCOAPODS_VERSION_PATCH_SFHFKeychainUtils 1
+
+// SVPullToRefresh
+#define COCOAPODS_POD_AVAILABLE_SVPullToRefresh
+#define COCOAPODS_VERSION_MAJOR_SVPullToRefresh 0
+#define COCOAPODS_VERSION_MINOR_SVPullToRefresh 4
+#define COCOAPODS_VERSION_PATCH_SVPullToRefresh 1
 
 // UMengSocial
 #define COCOAPODS_POD_AVAILABLE_UMengSocial

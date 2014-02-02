@@ -7,7 +7,6 @@
 //
 
 #import "BLHColorHelper.h"
-#import "Colours.h"
 
 @implementation UIColor(BLHColorHelper)
 +(UIColor*)getColorForLable:(NSString *)label

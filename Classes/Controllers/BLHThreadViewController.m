@@ -11,6 +11,7 @@
 #import "BLHNetworkHelper.h"
 #import "BLHArticle.h"
 #import "BLHFileParser.h"
+#import "BLHContent.h"
 
 @interface BLHThreadViewController ()
 @property NSMutableArray* articles;
@@ -33,7 +34,7 @@
     [super viewDidLoad];
     self.articles = [[NSMutableArray alloc]init];
     self.title = [self.params valueForKey:@"Title"];
-    
+
     
     NSString* link = [self.params valueForKey:@"LinkURL"];
     NSString* thread =  [link substringFromIndex:[link indexOf:@"board"]];
@@ -115,7 +116,7 @@
     {
         cell = [[UITableViewCell alloc]init];
     }
-    cell.textLabel.text = ((BLHArticle*)self.articles[indexPath.row]).file.nick;
+    cell.textLabel.text = ((BLHContent*)((BLHArticle*)self.articles[indexPath.row]).file.content[0]).content;
     // Configure the cell...
     
     return cell;
