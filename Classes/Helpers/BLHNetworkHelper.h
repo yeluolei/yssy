@@ -15,6 +15,7 @@ typedef void (^HttpResponseBlock)(NSDictionary *result);
 -(void) postRequest: (NSString*) url andParams:(NSMutableDictionary*) params onCompletion:(HttpResponseBlock)completionBlock;
 -(void) sendRequest: (NSString*) url andParams:(NSMutableDictionary*) params onCompletion:(HttpResponseBlock)completionBlock;
 -(void) getContent: (NSString*) url onCompletion:(HttpResponseBlock)completionBlock;
+-(void) getJsonContent: (NSString*) url onCompletion:(HttpResponseBlock)completionBlock;
 
 +(NSString *)convertResponseToString: (id)responseObject;
 +(AFHTTPRequestOperationManager*) manager;

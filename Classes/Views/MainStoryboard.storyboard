@@ -239,7 +239,7 @@
                         <barButtonItem key="rightBarButtonItem" title="取消" id="xwY-SY-Brv">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="0PQ-fA-ko8" kind="unwind" unwindAction="unwindToMenu:" id="ReX-3K-5kW"/>
+                                <segue destination="0PQ-fA-ko8" kind="unwind" identifier="existLoginSegue" unwindAction="unwindToMenu:" id="ReX-3K-5kW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -391,7 +391,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="w4a-8d-CGu">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ArticleCell" id="w4a-8d-CGu">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="w4a-8d-CGu" id="TGY-Fx-WMP">

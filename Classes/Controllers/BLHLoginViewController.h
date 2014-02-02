@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Rurui Ye. All rights reserved.
 //
 
-@interface BLHLoginViewController : UITableViewController//QuickDialogController <QuickDialogEntryElementDelegate>
+#import "BLHHUDTableViewController.h"
+@interface BLHLoginViewController : BLHHUDTableViewController//QuickDialogController <QuickDialogEntryElementDelegate>
 
 @end

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (nonatomic) bool loginSuccess;
 @end
 
 @implementation BLHLoginViewController
@@ -22,6 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.loginSuccess = false;
     // Custom initialization
 }
 
@@ -31,7 +33,11 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)loginButtonClick:(id)sender {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self showHUDWhileExecuting:@selector(login)];
+}
+
+-(void)login
+{
     BLHNetworkHelper *net = [[BLHNetworkHelper alloc]init];
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     [params setObject:self.userNameTextField.text forKey:@"id"];
@@ -44,12 +50,14 @@
             if ([content rangeOfString:@"出错啦"].location == NSNotFound)
             {
                 NSLog(@"Login Successed");
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登入成功"
-                                                                message:@"登入成功"
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"OK"
-                                                      otherButtonTitles:nil];
-                [alert show];
+                /*UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"登入成功"
+                 message:@"登入成功"
+                 delegate:nil
+                 cancelButtonTitle:@"OK"
+                 otherButtonTitles:nil];
+                 [alert show];*/
+                self.loginSuccess = true;
+                [self performSegueWithIdentifier:@"existLoginSegue" sender:self];
             }
             else
             {
@@ -77,6 +85,5 @@
             [alert show];
         }
     }];
-    [MBProgressHUD hideHUDForView:self.view animated:true];
 }
 @end

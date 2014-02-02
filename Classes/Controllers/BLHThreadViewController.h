@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface BLHThreadViewController : UITableViewController
+#import "BLHHUDTableViewController.h"
+@interface BLHThreadViewController : BLHHUDTableViewController
 @property(nonatomic) NSDictionary* params;
 @end

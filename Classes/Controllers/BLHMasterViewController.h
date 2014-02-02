@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BLHHUDTableViewController.h"
 
-@interface BLHMasterViewController : UITableViewController
+@interface BLHMasterViewController : BLHHUDTableViewController
 
 @end

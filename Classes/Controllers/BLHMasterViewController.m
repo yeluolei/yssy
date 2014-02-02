@@ -73,9 +73,8 @@
         {
             // failed
             NSLog(@"Get Failed: %@", [result objectForKey:@"error"]);
-            [[[MBProgressHUD alloc]init] showAnimated:true whileExecutingBlock:^{
-                
-            }];
+            
+            [self showAlertLabel:[result objectForKey:@"error"]];
         }
     }];
     

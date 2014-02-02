@@ -62,6 +62,21 @@
     }];
 }
 
+-(void)getJsonContent:(NSString *)url onCompletion:(HttpResponseBlock)completionBlock
+{
+    AFHTTPRequestOperationManager* manager = [BLHNetworkHelper manager];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([operation.response statusCode] == 200){
+            //NSLog(@"%@", [BLHNetworkHelper convertResponseToString: responseObject]);
+            completionBlock([NSDictionary dictionaryWithObject:responseObject forKey:@"data"]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        completionBlock([NSDictionary dictionaryWithObject:[error localizedDescription] forKey: @"error"]);
+    }];
+}
+
 +(NSString *)convertResponseToString: (id)responseObject
 {
     return [[NSString alloc] initWithData:(NSData*)responseObject

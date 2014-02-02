@@ -8,8 +8,12 @@
 
 #import "BLHThreadViewController.h"
 #import "BLHStringExtension.h"
-@interface BLHThreadViewController ()
+#import "BLHNetworkHelper.h"
+#import "BLHArticle.h"
+#import "BLHFileParser.h"
 
+@interface BLHThreadViewController ()
+@property NSMutableArray* articles;
 @end
 
 @implementation BLHThreadViewController
@@ -19,6 +23,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -26,13 +31,57 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.articles = [[NSMutableArray alloc]init];
+    self.title = [self.params valueForKey:@"Title"];
+    
     
     NSString* link = [self.params valueForKey:@"LinkURL"];
     NSString* thread =  [link substringFromIndex:[link indexOf:@"board"]];
     NSString* url = [@"https://bbs.sjtu.edu.cn/api/thread?" stringByAppendingString:thread];
     NSLog(@"%@",url);
     
-    self.title = [self.params valueForKey:@"Title"];
+    BLHFileParser * fileparser =[[BLHFileParser alloc]init];
+    BLHNetworkHelper *net = [[BLHNetworkHelper alloc]init];
+    
+    
+    [net getJsonContent:url onCompletion:^(NSDictionary *result) {
+        if (![result objectForKey:@"error"]){
+            NSDictionary *content = [result objectForKey:@"data"];
+            //NSLog(@"Get success: %@", content);
+            if (content != nil)
+            {
+                NSArray* articles = [content objectForKey:@"articles"];
+                dispatch_group_t group = dispatch_group_create();
+                
+                for (NSDictionary* articleContent in articles) {
+                    dispatch_group_enter(group);
+                    BLHArticle* article = [[BLHArticle alloc]init];
+                    article.author = [articleContent objectForKey:@"user"];
+                    article.link = [NSString stringWithFormat:@"https://bbs.sjtu.edu.cn/api/article/%@/%@",[articleContent objectForKey:@"board"],[articleContent objectForKey:@"file"]];
+                    [net getJsonContent:article.link onCompletion:^(NSDictionary *result) {
+                        article.file = [fileparser parser:result];
+                        [self.articles addObject:article];
+                        dispatch_group_leave(group);
+                    }];
+                }
+                dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                });
+            }
+        }
+        else
+        {
+            // failed
+            NSLog(@"Get Failed: %@", [result objectForKey:@"error"]);
+            
+            [self showAlertLabel:[result objectForKey:@"error"]];
+        }
+
+    }];
+    
+    [self.tableView reloadData];
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -49,23 +98,24 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return self.articles.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"ArticleCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc]init];
+    }
+    cell.textLabel.text = ((BLHArticle*)self.articles[indexPath.row]).file.nick;
     // Configure the cell...
     
     return cell;
