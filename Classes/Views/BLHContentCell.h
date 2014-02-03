@@ -11,6 +11,9 @@
 @interface BLHContentCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *author;
 @property (weak, nonatomic) IBOutlet UILabel *time;
-@property (weak, nonatomic) IBOutlet UIView *content;
+@property (weak, nonatomic) IBOutlet UIView  *containerView;
 
+@property (weak, nonatomic) IBOutlet NSString *file;
+@property (weak, nonatomic) IBOutlet NSString *board;
+-(void) setupContent: (NSArray*) contents;
 @end

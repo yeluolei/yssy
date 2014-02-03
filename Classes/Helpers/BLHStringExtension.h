@@ -12,5 +12,5 @@
 
 - (int) indexOf:(NSString *)text;
 - (int) indexOf:(NSString *)text atRange:(NSRange)searchRange;
-
+- (NSString *) stringByStrippingHTML;
 @end

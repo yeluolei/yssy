@@ -9,24 +9,23 @@
 #import "BLHFileParser.h"
 #import "BLHNetworkHelper.h"
 #import "BLHContent.h"
+#import "BLHStringExtension.h"
 @implementation BLHFileParser
 -(BLHFile*)parser:(NSDictionary *)result
 {
     if (![result objectForKey:@"error"]){
-        NSDictionary *content = [result objectForKey:@"data"];
-        if (content != nil)
+        NSDictionary *contentJson = [result objectForKey:@"data"];
+        if (contentJson != nil)
         {
             BLHFile* file =  [[BLHFile alloc]init];
-            NSDictionary* fileContent = [content objectForKey:@"content"];
+            NSDictionary* fileContentJson = [contentJson objectForKey:@"content"];
             
-            file.nick = [fileContent objectForKey:@"nick"];
-            file.author = [fileContent objectForKey:@"author"];
-            file.time = [self createDate:[fileContent objectForKey:@"datetime_tuple"]];
+            file.nick = [fileContentJson objectForKey:@"nick"];
+            file.author = [fileContentJson objectForKey:@"author"];
+            file.time = [self createDate:[fileContentJson objectForKey:@"datetime_tuple"]];
             // TODO add more parser to get images from this content
-            BLHContent* content = [[BLHContent alloc]init];
-            content.type = [TYPE_STRING copy];
-            content.content =[fileContent objectForKey:@"text_lines"];
-            [file.content addObject: content];
+            file.content = [self parseContent:[fileContentJson objectForKey:@"text_lines"]];
+            [file.content addObjectsFromArray: [self parseRef:[fileContentJson objectForKey:@"reply_lines"]]];
             return file;
             //[self.tableView reloadData];
         }
@@ -39,19 +38,71 @@
     return nil;
 }
 
+-(NSMutableArray*) parseContent:(NSArray*) objects
+{
+    NSMutableArray* texts = [[NSMutableArray alloc]init];
+    NSString* line = @"";
+    NSString* tmp = @"";
+    for (NSString* object in objects) {
+        
+        // escape refrence
+        if ([object hasPrefix:@"<font color=\"808080\">"])
+            break;
+        
+        int imgpos = [object indexOf:@"<img"];
+        if(imgpos != -1)// found image
+        {
+            // cut pre part and add to pre
+            
+        }
+        else{
+            line = [line stringByAppendingString:[tmp stringByAppendingString:@"\n" ]];
+            tmp = [object stringByStrippingHTML];
+        }
+    }
+    BLHContent* content = [[BLHContent alloc]init];
+    content.type = [TYPE_STRING copy];
+    content.content = [line stringByStrippingHTML];
+    [texts addObject:content];
+    return texts;
+}
+
+-(NSMutableArray*) parseRef:(NSArray*) refs
+{
+    NSMutableArray* texts = [[NSMutableArray alloc]init];
+    NSString* line = [[NSString alloc] init];
+    NSString* tmp = @"";
+    for (NSString* object in refs) {
+        if ([object hasPrefix:@": "])
+        {
+            break;
+        }
+        line = [line stringByAppendingString:[tmp stringByAppendingString:@"\n" ]];
+        tmp = [object stringByStrippingHTML];
+    }
+    BLHContent* content = [[BLHContent alloc]init];
+    content.type = [TYPE_STRING copy];
+    content.content = [line stringByStrippingHTML];
+    return texts;
+}
+
 -(NSString*) createDate:(NSArray* )dateTuple
 {
     NSDateComponents *components = [[NSDateComponents alloc] init];
-    [components setYear:dateTuple[0]];
+    NSLog(@"%@",dateTuple[0]);
+    [components setYear:[dateTuple[0] integerValue]];
     [components setMonth:dateTuple[1]];
     [components setDay:dateTuple[2]];
     [components setHour:dateTuple[3]];
     [components setMinute:dateTuple[4]];
     [components setSecond:dateTuple[5]];
-    NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:components];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    [cal setTimeZone:[NSTimeZone localTimeZone]];
+    [cal setLocale:[NSLocale currentLocale]];
+    NSDate *date = [cal dateFromComponents:components];
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"yyyy-MM-dd HH:mm"];
+    [format setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
     return [format stringFromDate:date];
 }
 @end

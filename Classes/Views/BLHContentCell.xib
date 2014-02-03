@@ -7,7 +7,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BLHContentCell">
             <connections>
                 <outlet property="author" destination="o8w-8e-b3i" id="VHX-LA-uMJ"/>
-                <outlet property="content" destination="aUB-jI-HRi" id="lIa-wR-70x"/>
+                <outlet property="containerView" destination="aUB-jI-HRi" id="B0c-Iv-tx2"/>
+                <outlet property="contentView" destination="aUB-jI-HRi" id="6MQ-Vb-xX6"/>
                 <outlet property="time" destination="JQk-58-gOj" id="6Jn-dg-NN1"/>
                 <outlet property="view" destination="1" id="4zJ-8k-hVO"/>
             </connections>
@@ -17,26 +18,38 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8w-8e-b3i">
-                    <rect key="frame" x="20" y="7" width="42" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o8w-8e-b3i" customClass="BLHPaddingLabel">
+                    <rect key="frame" x="20" y="7" width="38" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQk-58-gOj">
-                    <rect key="frame" x="258" y="7" width="42" height="21"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQk-58-gOj">
+                    <rect key="frame" x="274" y="7" width="26" height="12"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aUB-jI-HRi" customClass="BLHContentView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUB-jI-HRi">
                     <rect key="frame" x="20" y="36" width="280" height="94"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="5aG-dP-0Rb"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="JQk-58-gOj" secondAttribute="trailing" constant="20" id="5Ml-eu-NIu"/>
+                <constraint firstItem="JQk-58-gOj" firstAttribute="top" secondItem="1" secondAttribute="top" constant="7" id="6EC-CL-mro"/>
+                <constraint firstItem="o8w-8e-b3i" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="B0c-JE-JUu"/>
+                <constraint firstItem="aUB-jI-HRi" firstAttribute="top" secondItem="1" secondAttribute="top" constant="36" id="Iuf-0I-5q5"/>
+                <constraint firstAttribute="centerY" secondItem="aUB-jI-HRi" secondAttribute="centerY" constant="-8" id="XN6-TE-QYS"/>
+                <constraint firstItem="aUB-jI-HRi" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" id="bqh-ns-uwE"/>
+                <constraint firstItem="o8w-8e-b3i" firstAttribute="top" secondItem="1" secondAttribute="top" constant="7" id="wwP-2c-Xcg"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>

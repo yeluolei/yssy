@@ -7,6 +7,7 @@
 //
 
 #import "BLHBoardListViewController.h"
+#import "BLHSideMenuViewController.h"
 #import "BLHNetworkHelper.h"
 #import "BLHColorHelper.h"
 #import "BLHBoard.h"
@@ -32,7 +33,7 @@
 {
     [super viewDidLoad];
 
-    self.searchDisplayController.displaysSearchBarInNavigationBar = YES;
+    //self.searchDisplayController.displaysSearchBarInNavigationBar = YES;
     self.allBoards = [[NSMutableArray alloc]init];
     [self loadBoards];
     // Uncomment the following line to preserve selection between presentations.
@@ -69,6 +70,11 @@
         }
     }];
 }
+
+- (IBAction)openMenu:(id)sender {
+    [self.sideMenuViewController toggleMenuAnimated:YES completion:nil];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

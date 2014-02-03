@@ -7,15 +7,22 @@
 //
 
 #import "BLHContentCell.h"
+#import "BLHContent.h"
+#import "BLHPaddingLabel.h"
+#import "UIView+AutoLayout.h"
+
 
 @interface BLHContentCell()
 @property (strong, nonatomic) IBOutlet UIView *view;
+@property (nonatomic, assign) BOOL didSetupConstraints;
 @end
 
 @implementation BLHContentCell
 @synthesize author = _author;
 @synthesize time = _time;
-@synthesize content = _content;
+@synthesize containerView = _containerView;
+@synthesize file = _file;
+@synthesize board = _board;
 
 - (id)init
 {
@@ -66,11 +73,89 @@
     // Configure the view for the selected state
 }
 
+-(void) setupContent:(NSArray *)contents
+{
+    for (BLHContent* content in contents) {
+        if (content.type == TYPE_STRING)
+        {
+            UILabel* label = [[UILabel alloc]init];
+            label.numberOfLines = 0;
+            label.text = content.content;
+            [self.containerView addSubview:label];
+        }
+        else if (content.type == TYPE_REFRENCE)
+        {
+            BLHPaddingLabel* label = [[BLHPaddingLabel alloc]init];
+            label.numberOfLines = 0;
+            label.text = content.content;
+            label.textColor = [UIColor grayColor];
+            [self.containerView addSubview:label];
+            
+        }
+        else if (content.type == TYPE_IMAGE)
+        {
+            UIImageView * imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"blur"]];
+            [self.containerView addSubview:imageView];
+        }
+    }
+}
+
+-(void) updateConstraints
+{
+    [super updateConstraints];
+    
+    if (self.didSetupConstraints) {
+        return;
+    }
+    /*
+    NSArray* subviews = [self.containerView subviews];
+    UIView* preView;
+    for (int i = 0 ; i < subviews.count; i++) {
+        UIView* subview = subviews[i];
+        if (i == 0)
+        {
+            [subview setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+            [subview autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
+            [subview autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:0];
+            [subview autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:0];
+        }
+        else if (i == subviews.count - 1)
+        {
+            [subview setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+            [subview autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:preView withOffset:0];
+            [subview autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:0];
+            [subview autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:0];
+            [subview autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+        }
+        else
+        {
+            [subview setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+            [subview autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:0];
+            [subview autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:0];
+            [subview autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:0];
+        }
+        preView = subview;
+    }*/
+    self.didSetupConstraints = YES;
+}
+-(void) layoutSubviews
+{
+    [super layoutSubviews];
+    
+    // Make sure the contentView does a layout pass here so that its subviews have their frames set, which we
+    // need to use to set the preferredMaxLayoutWidth below.
+    [self.contentView setNeedsLayout];
+    [self.contentView layoutIfNeeded];
+    [self.containerView setNeedsLayout];
+    [self.containerView layoutIfNeeded];
+}
+
 -(void)setup
 {
     [[NSBundle mainBundle] loadNibNamed:@"BLHContentCell" owner:self options:nil];
     [self addSubview:self.view];
     self.author.layer.cornerRadius = 3;
+    self.author.textColor = [UIColor whiteColor];
 }
 
 @end

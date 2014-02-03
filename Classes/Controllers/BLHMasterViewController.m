@@ -50,21 +50,12 @@
                      @"A区 社团群体", @"A",
                      @"B区 游戏专区", @"B",
                      nil];
-    [self refreshData];
-    //__weak BLHMasterViewController *weakSelf = self;
-    //[self.tableView addPullToRefreshWithActionHandler:^{
-    //    [weakSelf refreshData];
+    __weak BLHMasterViewController *weakSelf = self;
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [weakSelf refreshData];
         // prepend data to dataSource, insert cells at top of table view
         // call [tableView.pullToRefreshView stopAnimating] when done
-    //}];
-	// Do any additional setup after loading the view, typically from a nib.
-    // self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    //UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    //self.navigationItem.rightBarButtonItem = addButton;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
+    }];
     [self.tableView triggerPullToRefresh];
 }
 
@@ -92,7 +83,7 @@
             NSLog(@"Get Failed: %@", [result objectForKey:@"error"]);
             [self showAlertLabel:[result objectForKey:@"error"]];
         }
-        //[weakSelf.tableView.pullToRefreshView stopAnimating];
+        [weakSelf.tableView.pullToRefreshView stopAnimating];
     }];
 }
 

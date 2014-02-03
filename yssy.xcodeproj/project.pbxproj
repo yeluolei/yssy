@@ -21,7 +21,6 @@
 		7E279001189CB8EC002D5EBA /* BLHTopTenItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E279000189CB8EC002D5EBA /* BLHTopTenItem.m */; };
 		7E279007189D0A9E002D5EBA /* BLHHUDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E279006189D0A9E002D5EBA /* BLHHUDTableViewController.m */; };
 		7E279009189D132C002D5EBA /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E279008189D132C002D5EBA /* CoreText.framework */; };
-		7E27900D189D13AE002D5EBA /* BLHContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E27900C189D13AE002D5EBA /* BLHContentView.m */; };
 		7E279011189D1435002D5EBA /* BLHContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E279010189D1435002D5EBA /* BLHContentCell.m */; };
 		7E279013189D1465002D5EBA /* BLHContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E279012189D1465002D5EBA /* BLHContentCell.xib */; };
 		7E279016189D2714002D5EBA /* BLHContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E279015189D2714002D5EBA /* BLHContent.m */; };
@@ -30,6 +29,7 @@
 		7E27901F189D35DC002D5EBA /* BLHArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E27901E189D35DC002D5EBA /* BLHArticle.m */; };
 		7E4255CC189E75E000264BC7 /* BLHBoardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4255CB189E75E000264BC7 /* BLHBoardListViewController.m */; };
 		7E4255CF189E849E00264BC7 /* BLHBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4255CE189E849E00264BC7 /* BLHBoard.m */; };
+		7E4255D2189F6FEE00264BC7 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E4255D1189F6FEE00264BC7 /* UIView+AutoLayout.m */; };
 		7E6F248C185F5C2600A8D061 /* BLHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F246F185F5C2600A8D061 /* BLHAppDelegate.m */; };
 		7E6F248E185F5C2600A8D061 /* BLHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F2474185F5C2600A8D061 /* BLHMasterViewController.m */; };
 		7E6F2491185F5C2600A8D061 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E6F247C185F5C2600A8D061 /* main.m */; };
@@ -112,8 +112,6 @@
 		7E279005189D0A9E002D5EBA /* BLHHUDTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHHUDTableViewController.h; sourceTree = "<group>"; };
 		7E279006189D0A9E002D5EBA /* BLHHUDTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHHUDTableViewController.m; sourceTree = "<group>"; };
 		7E279008189D132C002D5EBA /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		7E27900B189D13AE002D5EBA /* BLHContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHContentView.h; sourceTree = "<group>"; };
-		7E27900C189D13AE002D5EBA /* BLHContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHContentView.m; sourceTree = "<group>"; };
 		7E27900F189D1435002D5EBA /* BLHContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHContentCell.h; sourceTree = "<group>"; };
 		7E279010189D1435002D5EBA /* BLHContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHContentCell.m; sourceTree = "<group>"; };
 		7E279012189D1465002D5EBA /* BLHContentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BLHContentCell.xib; sourceTree = "<group>"; };
@@ -129,6 +127,8 @@
 		7E4255CB189E75E000264BC7 /* BLHBoardListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHBoardListViewController.m; sourceTree = "<group>"; };
 		7E4255CD189E849E00264BC7 /* BLHBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHBoard.h; sourceTree = "<group>"; };
 		7E4255CE189E849E00264BC7 /* BLHBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHBoard.m; sourceTree = "<group>"; };
+		7E4255D0189F6FEE00264BC7 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		7E4255D1189F6FEE00264BC7 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 		7E6F246E185F5C2600A8D061 /* BLHAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHAppDelegate.h; sourceTree = "<group>"; };
 		7E6F246F185F5C2600A8D061 /* BLHAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHAppDelegate.m; sourceTree = "<group>"; };
 		7E6F2473185F5C2600A8D061 /* BLHMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHMasterViewController.h; sourceTree = "<group>"; };
@@ -229,15 +229,6 @@
 			path = ../Helpers;
 			sourceTree = "<group>";
 		};
-		7E27900A189D133C002D5EBA /* ContentView */ = {
-			isa = PBXGroup;
-			children = (
-				7E27900B189D13AE002D5EBA /* BLHContentView.h */,
-				7E27900C189D13AE002D5EBA /* BLHContentView.m */,
-			);
-			name = ContentView;
-			sourceTree = "<group>";
-		};
 		7E27900E189D1402002D5EBA /* ContentCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +286,8 @@
 		7E6F2478185F5C2600A8D061 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				7E4255D0189F6FEE00264BC7 /* UIView+AutoLayout.h */,
+				7E4255D1189F6FEE00264BC7 /* UIView+AutoLayout.m */,
 				7E217E7C18632F1D002C6ECE /* SideMenuButton.h */,
 				7E217E7D18632F1D002C6ECE /* SideMenuButton.m */,
 				7E217E8D1865337A002C6ECE /* BLHViewLoadHelper.h */,
@@ -408,7 +401,6 @@
 			isa = PBXGroup;
 			children = (
 				7E27900E189D1402002D5EBA /* ContentCell */,
-				7E27900A189D133C002D5EBA /* ContentView */,
 				7ED5BE4C189BBF6000D7C334 /* PaddingLabel */,
 				7ED5BE46189B9D1B00D7C334 /* TopTenCell */,
 				7E217E891865322B002C6ECE /* CircleLabelView */,
@@ -672,7 +664,6 @@
 				7E279019189D2B14002D5EBA /* BLHFile.m in Sources */,
 				7E217E7B186325DB002C6ECE /* BLHMainNavViewController.m in Sources */,
 				7E217E8C1865327C002C6ECE /* BLHCircleView.m in Sources */,
-				7E27900D189D13AE002D5EBA /* BLHContentView.m in Sources */,
 				7ED5BE25189A375D00D7C334 /* BLHReplyMeViewController.m in Sources */,
 				7E217E6E18631529002C6ECE /* BLHMenuViewController.m in Sources */,
 				7E279011189D1435002D5EBA /* BLHContentCell.m in Sources */,
@@ -681,6 +672,7 @@
 				7E27901C189D2B2B002D5EBA /* BLHFileParser.m in Sources */,
 				7EE3995E18962C7B0071C219 /* BLHLoginViewController.m in Sources */,
 				7ED5BE4B189B9DDF00D7C334 /* BLHTopTenCell.m in Sources */,
+				7E4255D2189F6FEE00264BC7 /* UIView+AutoLayout.m in Sources */,
 				7ED5BE2B189A792900D7C334 /* BLHStringExtension.m in Sources */,
 				7ED5BE1C1896B2AA00D7C334 /* BLHNetworkHelper.m in Sources */,
 				7E217E7E18632F1D002C6ECE /* SideMenuButton.m in Sources */,

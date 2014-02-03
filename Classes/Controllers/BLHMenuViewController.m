@@ -25,6 +25,8 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *firstTableViewCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *secondTableViewCell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *thirdTableViewCell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *fourthTableViewCell;
+
 @end
 
 @implementation BLHMenuViewController
@@ -46,21 +48,6 @@
     [self.view sendSubviewToBack:(self.backgroundImageView)];
 
     [self.idLabelView setInitValue:@"Try" andBackground:[UIColor redColor]];
-    //BLHCircleView *label = [[BLHCircleView alloc]init];
-    //[label setBackgroundColor:[UIColor blueColor]];
-    
-    //label.frame = CGRectMake(40, 50, 100, 100);
-    //[self.view addSubview:label];
-    
-    
-    //NSArray * modeList = @[@"一",@"二"];
-    //for (NSInteger i = 0; i < modeList.count; i++)
-    //{
-    //    UIButton *cmButton = [self createMenuButton:modeList[i]];
-    //    cmButton.frame = CGRectMake(0, 140+i*ButtonHeight, ButtonWidth, ButtonHeight);
-    //    [self.view addSubview:cmButton];
-    //}
-	// Do any additional setup after loading the view.
 }
 
 - (UIButton*)createMenuButton:(NSString*) label
@@ -88,7 +75,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -103,6 +90,9 @@
             break;
         case 2:
             cell = self.thirdTableViewCell;
+            break;
+        case 3:
+            cell = self.fourthTableViewCell;
             break;
         default:
         cell = nil;
@@ -119,13 +109,22 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     switch (indexPath.row) {
         case 0:
+        {
             controller = [(BLHMainNavViewController*)[storyboard instantiateViewControllerWithIdentifier:@"MainNavView"] initWithRootViewController:[storyboard instantiateViewControllerWithIdentifier:@"MasterViewController"]];
-        break;
+            break;
+        }
         case 1:
-        break;
+        {
+            controller = [(BLHMainNavViewController*)[storyboard instantiateViewControllerWithIdentifier:@"BoardListNavView"] initWithRootViewController:[storyboard instantiateViewControllerWithIdentifier:@"BoardListViewController"]];
+            break;
+        }
         case 2:
+        {
             controller = [(BLHMainNavViewController*)[storyboard instantiateViewControllerWithIdentifier:@"ReplyMeNav"] initWithRootViewController:[storyboard instantiateViewControllerWithIdentifier:@"ReplyMeViewController"]];
-        break;
+            break;
+        }
+        case 3:
+            break;
         default:
         break;
     }

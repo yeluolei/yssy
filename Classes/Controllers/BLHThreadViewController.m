@@ -12,7 +12,10 @@
 #import "BLHArticle.h"
 #import "BLHFileParser.h"
 #import "BLHContent.h"
+#import "BLHContentCell.h"
+#import "BLHColorHelper.h"
 
+static NSString *CellIdentifier = @"ArticleCell";
 @interface BLHThreadViewController ()
 @property NSMutableArray* articles;
 @end
@@ -109,17 +112,81 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ArticleCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    BLHContentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    for (UIView *subV in [cell.containerView subviews]){
+        [subV removeFromSuperview];
+    }
     
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc]init];
+        cell = [[BLHContentCell alloc]init];
     }
-    cell.textLabel.text = ((BLHContent*)((BLHArticle*)self.articles[indexPath.row]).file.content[0]).content;
+    
+    BLHArticle* article = self.articles[indexPath.row];
     // Configure the cell...
+    cell.author.text = article.author;
+    cell.author.backgroundColor = [UIColor getColorForLable:article.author];
+    cell.time.text = article.file.time;
+    [cell setupContent:article.file.content];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    /*
+    BLHContentCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    for (UIView *subV in [cell.containerView subviews]){
+        [subV removeFromSuperview];
+    }
+    // Configure the cell for this indexPath
+    BLHArticle* article = self.articles[indexPath.row];
+    cell.author.text = article.author;
+    cell.time.text = article.file.time;
+    [cell setupContent:article.file.content];
+    
+    // Make sure the constraints have been added to this cell, since it may have just been created from scratch
+    [cell setNeedsUpdateConstraints];
+    [cell updateConstraintsIfNeeded];
+    
+    // Set the width of the cell to match the width of the table view. This is important so that we'll get the
+    // correct height for different table view widths, since our cell's height depends on its width due to
+    // the multi-line UILabel word wrapping. Don't need to do this above in -[tableView:cellForRowAtIndexPath]
+    // because it happens automatically when the cell is used in the table view.
+    cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(cell.bounds));
+    
+    // Do the layout pass on the cell, which will calculate the frames for all the views based on the constraints
+    // (Note that the preferredMaxLayoutWidth is set on multi-line UILabels inside the -[layoutSubviews] method
+    // in the UITableViewCell subclass
+    [cell setNeedsLayout];
+    [cell layoutIfNeeded];
+    
+    // Get the actual height required for the cell
+    CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    
+    // Add an extra point to the height to account for the cell separator, which is added between the bottom
+    // of the cell's contentView and the bottom of the table view cell.
+    height += 1;
+    
+    return height;*/
+    return 50;
+
+    
+    /*BLHArticle* article = self.articles[indexPath.row];
+    NSString *cellText  = ((BLHContent*)article.file.content[0]).content;
+    //set the desired size of your textbox
+    CGSize constraint = CGSizeMake(290, MAXFLOAT);
+    //set your text attribute dictionary
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:[UIFont systemFontOfSize:17.0] forKey:NSFontAttributeName];
+    //get the size of the text box
+    CGRect textsize = [cellText boundingRectWithSize:constraint options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil];
+    //calculate your size
+    float textHeight = textsize.size.height +20;
+    //I have mine set for a minimum size
+    textHeight = (textHeight < 50.0) ? 50.0 : textHeight;
+    
+    return textHeight;*/
+
 }
 
 /*
