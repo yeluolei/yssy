@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface BLHBoard : NSObject
-@property NSString* name;
-@property NSString* chinese;
-@property NSString* category;
+@property (nonatomic, copy) NSString* name;
+@property (nonatomic) NSString* chinese;
+@property (nonatomic) NSString* category;
 @end

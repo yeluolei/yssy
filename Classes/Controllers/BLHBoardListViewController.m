@@ -5,9 +5,10 @@
 //  Created by Rurui Ye on 2/2/14.
 //  Copyright (c) 2014 Rurui Ye. All rights reserved.
 //
-
 #import "BLHBoardListViewController.h"
 #import "BLHSideMenuViewController.h"
+#import "BLHThreadListViewController.h"
+#import "UIScrollView+SVPullToRefresh.h"
 #import "BLHNetworkHelper.h"
 #import "BLHColorHelper.h"
 #import "BLHBoard.h"
@@ -15,32 +16,40 @@
 
 @interface BLHBoardListViewController ()
 @property (nonatomic) NSMutableArray *allBoards;
-@property (nonatomic) NSMutableArray *searchResults;
+@property (nonatomic) NSMutableArray *allBoardsWithSections;
+@property (nonatomic) NSArray *searchResults;
+@property (nonatomic) UILocalizedIndexedCollation *collation;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @end
 
 @implementation BLHBoardListViewController
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     //self.searchDisplayController.displaysSearchBarInNavigationBar = YES;
-    self.allBoards = [[NSMutableArray alloc]init];
-    [self loadBoards];
+    // if IOS 7
+    //self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [self refreshData];
+        // prepend data to dataSource, insert cells at top of table view
+        // call [tableView.pullToRefreshView stopAnimating] when done
+    }];
+    [self.tableView triggerPullToRefresh];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void) refreshData
+{
+    self.allBoards = [[NSMutableArray alloc]init];
+    [self loadBoards];
 }
 
 -(void) loadBoards{
@@ -59,6 +68,7 @@
                     board.category = [boardJson objectForKey:@"category"];
                     [self.allBoards addObject:board];
                 }
+                [self configureSections];
                 [self.tableView reloadData];
             }
         }
@@ -66,9 +76,52 @@
         {
             // failed
             NSLog(@"Get Failed: %@", [result objectForKey:@"error"]);
-            [self showAlertLabel:[result objectForKey:@"error"]];
+            //[weakSelf showAlertLabel:[result objectForKey:@"error"]];
         }
+        [self.tableView.pullToRefreshView stopAnimating];
     }];
+}
+
+-(void) configureSections
+{
+    self.collation = [UILocalizedIndexedCollation currentCollation];
+    
+	NSInteger index, sectionTitlesCount = [[self.collation sectionTitles] count];
+    
+	NSMutableArray *newSectionsArray = [[NSMutableArray alloc] initWithCapacity:sectionTitlesCount];
+    
+	// Set up the sections array: elements are mutable arrays that will contain the time zones for that section.
+	for (index = 0; index < sectionTitlesCount; index++) {
+		NSMutableArray *array = [[NSMutableArray alloc] init];
+		[newSectionsArray addObject:array];
+	}
+    
+	// Segregate the time zones into the appropriate arrays.
+	for (BLHBoard *board in self.allBoards) {
+        
+		// Ask the collation which section number the time zone belongs in, based on its locale name.
+		NSInteger sectionNumber = [self.collation sectionForObject:board collationStringSelector:@selector(name)];
+        
+		// Get the array for the section.
+		NSMutableArray *section = newSectionsArray[sectionNumber];
+        
+		//  Add the time zone to the section.
+		[section addObject:board];
+	}
+    
+	// Now that all the data's in place, each section array needs to be sorted.
+	for (index = 0; index < sectionTitlesCount; index++) {
+        
+		NSMutableArray *boardsArrayForSection = newSectionsArray[index];
+        
+		// If the table view or its contents were editable, you would make a mutable copy here.
+		NSArray *sortedBoardArrayForSection = [self.collation sortedArrayFromArray:boardsArrayForSection collationStringSelector:@selector(name)];
+        
+		// Replace the existing array with the sorted array.
+		newSectionsArray[index] = sortedBoardArrayForSection;
+	}
+    
+	self.allBoardsWithSections = newSectionsArray;
 }
 
 - (IBAction)openMenu:(id)sender {
@@ -82,41 +135,103 @@
 }
 
 #pragma search bar
--(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    [self dismissViewControllerAnimated:TRUE completion:nil];
+    NSPredicate *predicate = [NSPredicate
+                              predicateWithFormat:@"SELF.name contains[c] %@",
+                              searchText];
+    self.searchResults = [self.allBoards filteredArrayUsingPredicate:predicate];
+    [self.searchDisplayController.searchResultsTableView reloadData];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return 1;
+    }
+    else
+    {
+        return self.collation.sectionTitles.count;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.allBoards.count;
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return  self.searchResults.count;
+    }
+    else{
+        return [self.allBoardsWithSections[section] count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"BoardCell";
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc]init];
     }
-    // Configure the cell...
-    
-    BLHBoard* current = self.allBoards[indexPath.row];
-    
+
+    BLHBoard* current = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        current = self.searchResults[indexPath.row];
+    }
+    else
+    {
+        current = self.allBoardsWithSections[indexPath.section][indexPath.row];
+    }
     cell.textLabel.text = current.name;
     cell.textLabel.textColor = [UIColor getColorForLable:current.name];
     return cell;
+    // Configure the cell...
 }
+
+/*
+ Section-related methods: Retrieve the section titles and section index titles from the collation.
+ */
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return nil;
+    }
+    else{
+        return [self.collation sectionTitles][section];
+    }
+}
+
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return nil;
+    }
+    else{
+        return [self.collation sectionIndexTitles];
+    }
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return nil;
+    }
+    else{
+        return [self.collation sectionForSectionIndexTitleAtIndex:index];
+    }
+    
+}
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -157,16 +272,28 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [[BLHNetworkHelper manager].operationQueue cancelAllOperations];
+    if([sender isKindOfClass:[UITableViewCell class]]) {
+        BLHThreadListViewController* threadController = (BLHThreadListViewController*)[segue destinationViewController];
+        if (self.searchDisplayController.active) {
+            NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            BLHBoard *object = ((NSArray*)self.searchResults)[indexPath.row];
+            threadController.boardName = object.name;
+        }else {
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            BLHBoard *object = ((NSArray*)self.allBoardsWithSections[indexPath.section])[indexPath.row];
+            threadController.boardName = object.name;
+        }
+        //Your code here
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-
- */
 
 @end

@@ -161,6 +161,7 @@
 #pragma Segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [[BLHNetworkHelper manager].operationQueue cancelAllOperations];
     if ([[segue identifier] isEqualToString:@"showThread"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         BLHTopTenItem *object = ((NSArray*)self.dataSource[indexPath.section])[indexPath.row];

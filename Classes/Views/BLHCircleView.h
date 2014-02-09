@@ -8,14 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+/*
 @class BLHCircleView;
-
 @protocol BLHCircleViewDelegate<NSObject>
 -(void)decoupledViewTouchedUp:(BLHCircleView*) decoupledView;
 @end
-
+*/
 @interface BLHCircleView : UIView
-@property (assign) id<BLHCircleViewDelegate> delegate;
-+(void)presentInViewController:(UIViewController*) viewController;
--(IBAction)viewTouchedUp;
+@property (nonatomic, strong) IBOutlet UIView *view;
+//@property (assign) id<BLHCircleViewDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UILabel *circleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *rightLabel;
+//-(IBAction)viewTouchedUp;
+
+-(void)setInitValue: (NSString*) label andBackground:(UIColor *)background;
 @end
