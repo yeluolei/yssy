@@ -89,13 +89,13 @@
 -(NSString*) createDate:(NSArray* )dateTuple
 {
     NSDateComponents *components = [[NSDateComponents alloc] init];
-    NSLog(@"%@",dateTuple[0]);
+    //NSLog(@"%@",dateTuple[0]);
     [components setYear:[dateTuple[0] integerValue]];
-    [components setMonth:dateTuple[1]];
-    [components setDay:dateTuple[2]];
-    [components setHour:dateTuple[3]];
-    [components setMinute:dateTuple[4]];
-    [components setSecond:dateTuple[5]];
+    [components setMonth:[dateTuple[1] integerValue]];
+    [components setDay:[dateTuple[2] integerValue]];
+    [components setHour:[dateTuple[3] integerValue]];
+    [components setMinute:[dateTuple[4] integerValue]];
+    [components setSecond:[dateTuple[5] integerValue]];
     NSCalendar *cal = [NSCalendar currentCalendar];
     [cal setTimeZone:[NSTimeZone localTimeZone]];
     [cal setLocale:[NSLocale currentLocale]];

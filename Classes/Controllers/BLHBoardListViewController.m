@@ -5,6 +5,7 @@
 //  Created by Rurui Ye on 2/2/14.
 //  Copyright (c) 2014 Rurui Ye. All rights reserved.
 //
+#import <QuartzCore/QuartzCore.h>
 #import "BLHBoardListViewController.h"
 #import "BLHSideMenuViewController.h"
 #import "BLHThreadListViewController.h"
@@ -19,8 +20,6 @@
 @property (nonatomic) NSMutableArray *allBoardsWithSections;
 @property (nonatomic) NSArray *searchResults;
 @property (nonatomic) UILocalizedIndexedCollation *collation;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @end
 
 @implementation BLHBoardListViewController
@@ -30,10 +29,11 @@
 
     //self.searchDisplayController.displaysSearchBarInNavigationBar = YES;
     // if IOS 7
-    //self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
+     __weak BLHBoardListViewController *weakSelf = self;
     [self.tableView addPullToRefreshWithActionHandler:^{
-        [self refreshData];
+        [weakSelf refreshData];
         // prepend data to dataSource, insert cells at top of table view
         // call [tableView.pullToRefreshView stopAnimating] when done
     }];

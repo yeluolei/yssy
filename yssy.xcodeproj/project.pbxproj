@@ -54,6 +54,7 @@
 		7E6F24C1185F5E5900A8D061 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6F24B1185F5E5900A8D061 /* iTunesArtwork.png */; };
 		7E6F24C2185F5E5900A8D061 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E6F24B2185F5E5900A8D061 /* iTunesArtwork@2x.png */; };
 		7E6F24C4185F643300A8D061 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6F24C3185F643300A8D061 /* QuartzCore.framework */; };
+		7E83B97D18AD2D3C0034DB4A /* BLHSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E83B97C18AD2D3C0034DB4A /* BLHSearchDisplayController.m */; };
 		7ED5BE1C1896B2AA00D7C334 /* BLHNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7ED5BE1B1896B2AA00D7C334 /* BLHNetworkHelper.m */; };
 		7ED5BE1E18994A6100D7C334 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7ED5BE1D18994A6100D7C334 /* libxml2.dylib */; };
 		7ED5BE211899500000D7C334 /* blur.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ED5BE1F1899500000D7C334 /* blur.png */; };
@@ -159,6 +160,8 @@
 		7E6F24B2185F5E5900A8D061 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		7E6F24C3185F643300A8D061 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7E6F24C5185F648D00A8D061 /* yssy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "yssy-Info.plist"; sourceTree = SOURCE_ROOT; };
+		7E83B97B18AD2D3C0034DB4A /* BLHSearchDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHSearchDisplayController.h; sourceTree = "<group>"; };
+		7E83B97C18AD2D3C0034DB4A /* BLHSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHSearchDisplayController.m; sourceTree = "<group>"; };
 		7ED5BE1A1896B2AA00D7C334 /* BLHNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLHNetworkHelper.h; sourceTree = "<group>"; };
 		7ED5BE1B1896B2AA00D7C334 /* BLHNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLHNetworkHelper.m; sourceTree = "<group>"; };
 		7ED5BE1D18994A6100D7C334 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -303,6 +306,8 @@
 				7ED5BE57189BD0BD00D7C334 /* BLHColorHelper.m */,
 				7E279005189D0A9E002D5EBA /* BLHHUDTableViewController.h */,
 				7E279006189D0A9E002D5EBA /* BLHHUDTableViewController.m */,
+				7E83B97B18AD2D3C0034DB4A /* BLHSearchDisplayController.h */,
+				7E83B97C18AD2D3C0034DB4A /* BLHSearchDisplayController.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -656,6 +661,7 @@
 				7E4255CF189E849E00264BC7 /* BLHBoard.m in Sources */,
 				7E4255CC189E75E000264BC7 /* BLHBoardListViewController.m in Sources */,
 				7E279016189D2714002D5EBA /* BLHContent.m in Sources */,
+				7E83B97D18AD2D3C0034DB4A /* BLHSearchDisplayController.m in Sources */,
 				7ED5BE4F189BBF8900D7C334 /* BLHPaddingLabel.m in Sources */,
 				7E6F2491185F5C2600A8D061 /* main.m in Sources */,
 				7E217E6B186313E5002C6ECE /* BLHSideMenuViewController.m in Sources */,

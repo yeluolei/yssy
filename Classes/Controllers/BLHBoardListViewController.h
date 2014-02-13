@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "BLHHUDTableViewController.h"
-@interface BLHBoardListViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UISearchDisplayDelegate, UISearchBarDelegate>
+@interface BLHBoardListViewController : UITableViewController <UISearchDisplayDelegate, UISearchBarDelegate>
 
 @end
